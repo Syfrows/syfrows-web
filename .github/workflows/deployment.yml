@@ -17,6 +17,6 @@ jobs:
       - name: Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          server: ftp.syfrows.com
+          server: panel.freehosting.com
           username: deploy@syfrows.com
           password: ${{ secrets.FTP_PASSWORD }}
