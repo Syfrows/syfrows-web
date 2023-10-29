@@ -20,3 +20,4 @@ jobs:
           server: panel.freehosting.com
           username: deploy@syfrows.com
           password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: public_html/
