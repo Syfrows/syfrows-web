@@ -1,7 +1,7 @@
 /*
-  Theme Name: Syfrows
+  Theme Name: Xolio - Creative Agency HTML5 Template
   Support: themegenix@gmail.com
-  Description: Syfrows.
+  Description: Xolio - Creative Agency HTML5 Template.
   Version: 1.0
 */
 
@@ -612,7 +612,7 @@ label {
 	top: 15px;
 }
 .nav-logo img {
-	max-width: 150px;
+	max-width: 200px;
 }
 .mobile-menu {
 	position: fixed;
@@ -1152,6 +1152,16 @@ label {
 	font-size: 15px;
 	padding: 32px 200px 32px 65px;
 }
+.pricing{
+	color: black;
+	
+	
+}
+/* .brand-logo{
+	display: flex;
+	justify-content: space-evenly;
+} */
+
 .breadcrumb-search form input::placeholder {
 	color: #AEB3BB;
 	font-weight: 400;
@@ -5575,9 +5585,11 @@ label {
 .inner-contact-info .list-wrap {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: space-evenly;
 	flex-wrap: wrap;
 	gap: 30px;
+	padding-bottom: 250px;
+	margin-left: 180px;
 }
 .contact-info-item {
 	display: flex;
@@ -5608,12 +5620,15 @@ label {
 	box-shadow: 0px 35px 54px rgba(61, 90, 125, 0.03);
 	border-radius: 20px;
 	width: 610px;
-	padding: 45px 40px;
+	padding: 45px 40px 100px 100px;
+	margin-top: 180px;
+	
 	position: absolute;
 	right: 0;
 	top: 0;
 	background: var(--tg-white);
 }
+
 .inner-contact-form-wrap .form-grp {
 	position: relative;
 	margin-bottom: 24px;
@@ -5656,6 +5671,62 @@ label {
 .inner-contact-form-wrap span {
 	background: var(--tg-secondary-color);
 }
+.inner-about-form-wrap {
+	border: 1px solid var(--tg-border-color);
+	box-shadow: 0px 35px 54px rgba(61, 90, 125, 0.03);
+	border-radius: 20px;
+	width: 450px;
+	height: 520px;
+	padding: 45px 40px 100px;
+	margin-right: 150px;
+	
+	position: absolute;
+	right: 0;
+	top: 0;
+	background: var(--tg-white);
+}
+.inner-about-form-wrap .form-grp {
+	position: relative;
+	margin-bottom: 24px;
+}
+.inner-about-form-wrap .form-grp textarea,
+.inner-about-form-wrap .form-grp input {
+	width: 100%;
+	border: 1px solid #E3E3E3;
+	backdrop-filter: blur(21px);
+	background: transparent;
+	border-radius: 15px;
+	letter-spacing: 0.0833333px;
+	color: #818080;
+	font-size: 16px;
+	padding: 22px 30px 22px 55px;
+	height: 72px;
+	display: block;
+}
+.inner-about-form-wrap .form-grp textarea::placeholder,
+.inner-contact-form-wrap .form-grp input::placeholder {
+	color: #818080;
+	font-size: 16px;
+}
+.inner-about-form-wrap .form-grp textarea {
+	min-height: 153px;
+	max-height: 153px;
+}
+.inner-about-form-wrap .form-grp label {
+	position: absolute;
+	left: 28px;
+	color: #B1AEAE;
+	font-size: 15px;
+	z-index: 2;
+	top: 23px;
+}
+.inner-about-form-wrap .btn {
+	background: var(--tg-primary-color);
+	margin-top: 22px;
+}
+.inner-about-form-wrap span {
+	background: var(--tg-secondary-color);
+}
 
 /*=============================
 	30. Footer
@@ -5665,6 +5736,10 @@ label {
 }
 .logo img {
 	max-width: 126px;
+}
+.pricing-footer{
+	padding-left: ;
+	padding-right: 0%;
 }
 .footer-top {
 	padding: 120px 0 80px;
