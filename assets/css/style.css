@@ -5771,9 +5771,11 @@ label {
 	color: var(--tg-secondary-color);
 	border-color: var(--tg-secondary-color);
 }
-.footer-contact span {
+
+.footer-contact span,
+.footer-contact a {
 	display: block;
-	color: var(--tg-silver);
+	color: var(--tg-white);
 	margin-bottom: 8px;
 }
 .footer-contact .title {
