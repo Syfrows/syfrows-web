@@ -1,8 +1,7 @@
 /* Syfrows: send every website form to email (Web3Forms) and track it in GA4 / GTM.
    HubSpot's tracking code (loaded separately) also captures these submissions as CRM contacts. */
 (function () {
-  var ENDPOINT = "https://api.web3forms.com/submit";
-  var KEY = "fd9f3217-7d48-4bd9-b0ba-47c8e4b82aef";
+  var ENDPOINT = "https://formsubmit.co/ajax/syfrows@gmail.com";
 
   function fieldName(el) {
     if (el.name) return el.name;
@@ -42,12 +41,13 @@
       var btn = form.querySelector('button[type="submit"],button:not([type])');
       var data = {};
       new FormData(form).forEach(function (v, k) { data[k] = v; });
-      data.access_key = KEY;
-      data.subject = isNewsletter ? "New newsletter subscriber - syfrows.com" : "New enquiry from syfrows.com";
-      data.from_name = "Syfrows Website";
+      delete data.access_key;
+      data._subject = isNewsletter ? "New newsletter subscriber - syfrows.com" : "New enquiry from syfrows.com";
+      data._template = "table";
+      data._captcha = "false";
       data.form_type = isNewsletter ? "Newsletter" : "Enquiry";
       data.page = location.href;
-      if (data.email) data.replyto = data.email;
+      if (data.email) data._replyto = data.email;
       if (btn) btn.disabled = true;
       message(form, "Sending...", true);
 
@@ -58,7 +58,7 @@
       })
         .then(function (r) { return r.json(); })
         .then(function (res) {
-          if (!res.success) throw new Error(res.message || "Failed");
+          if (String(res.success) !== "true") throw new Error(res.message || "Failed");
           message(form, isNewsletter ? "Thanks! You're subscribed." : "Thanks! We'll get back to you within 24 hours.", true);
           form.reset();
           window.dataLayer = window.dataLayer || [];
