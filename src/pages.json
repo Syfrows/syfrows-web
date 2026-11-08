@@ -78,5 +78,21 @@
   "canon": "https://www.syfrows.com/lead-generation",
   "active": "services",
   "sub": "lead-generation.html"
+ },
+ "website-development": {
+  "file": "website-development.html",
+  "title": "B2B Website Design & Development Company | Syfrows",
+  "desc": "Fast, SEO-ready B2B websites and landing pages built to generate leads, with CRM, analytics and conversion tracking connected.",
+  "canon": "https://www.syfrows.com/website-development",
+  "active": "services",
+  "sub": "website-development.html"
+ },
+ "app-development": {
+  "file": "app-development.html",
+  "title": "Web & Mobile App Development Company | Syfrows",
+  "desc": "Custom web apps, mobile apps, client portals and internal tools for growing businesses, from UX design to launch and support.",
+  "canon": "https://www.syfrows.com/app-development",
+  "active": "services",
+  "sub": "app-development.html"
  }
 }
