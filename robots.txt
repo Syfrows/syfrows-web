@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /Version/
+
+Sitemap: https://www.syfrows.com/sitemap.xml
