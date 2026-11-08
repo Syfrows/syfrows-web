@@ -1,0 +1,9 @@
+---
+import Base from "../layouts/Base.astro";
+import body from "../content/services-details.html?raw";
+import pages from "../pages.json";
+const m = pages["services-details"];
+---
+<Base title={m.title} desc={m.desc} canon={m.canon} active={m.active} sub={m.sub} withSchema={false}>
+  <Fragment set:html={body} />
+</Base>
