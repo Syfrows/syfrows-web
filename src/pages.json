@@ -1,0 +1,50 @@
+{
+ "index": {
+  "file": "index.html",
+  "title": "Best Digital Services/Marketing Company | Syfrows",
+  "desc": "Syfrows helps B2B, tech and manufacturing companies in the US, Europe and the Middle East win more deals with LinkedIn growth, sales decks, explainer videos and lead-generation systems.",
+  "canon": "https://www.syfrows.com/",
+  "active": "home",
+  "sub": ""
+ },
+ "about-us": {
+  "file": "about-us.html",
+  "title": "About Syfrows | B2B Digital Marketing & Design Agency",
+  "desc": "Meet Syfrows: a B2B digital marketing and design agency based in Pune, India, serving clients across the US, Canada, Europe and the Middle East since 2021.",
+  "canon": "https://www.syfrows.com/about-us",
+  "active": "about",
+  "sub": ""
+ },
+ "contact": {
+  "file": "contact.html",
+  "title": "Contact Syfrows | Book a Free 30-Minute Strategy Call",
+  "desc": "Talk to Syfrows about LinkedIn growth, sales decks, explainer videos or lead generation. Based in India, working with US, UK and EU time zones.",
+  "canon": "https://www.syfrows.com/contact",
+  "active": "services",
+  "sub": "contact.html"
+ },
+ "services-details": {
+  "file": "services-details.html",
+  "title": "B2B Marketing Services: LinkedIn, Sales Decks, Video & Lead Gen | Syfrows",
+  "desc": "LinkedIn content and growth, sales and investor deck design, explainer video production, websites and marketing automation for B2B companies worldwide.",
+  "canon": "https://www.syfrows.com/services-details",
+  "active": "services",
+  "sub": "services-details.html"
+ },
+ "project-details": {
+  "file": "project-details.html",
+  "title": "Case Studies & Portfolio | Syfrows",
+  "desc": "Selected work by Syfrows: websites, branding, LinkedIn programmes, decks and video for B2B and professional-services clients.",
+  "canon": "https://www.syfrows.com/project-details",
+  "active": "services",
+  "sub": "project-details.html"
+ },
+ "pricing": {
+  "file": "pricing.html",
+  "title": "Pricing & Packages | Syfrows B2B Marketing Agency",
+  "desc": "Transparent packages for B2B marketing, LinkedIn growth, deck design and lead generation. Invoicing in USD, EUR, AED and INR.",
+  "canon": "https://www.syfrows.com/pricing",
+  "active": "services",
+  "sub": "pricing.html"
+ }
+}

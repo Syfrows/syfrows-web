@@ -1,0 +1,36 @@
+---
+import head from "../partials/head.html?raw";
+import pre from "../partials/pre.html?raw";
+import header from "../partials/header.html?raw";
+import footer from "../partials/footer.html?raw";
+import scripts from "../partials/scripts.html?raw";
+import schema from "../partials/schema.html?raw";
+
+interface Props { title: string; desc: string; canon: string; active?: string; sub?: string; withSchema?: boolean }
+const { title, desc, canon, active = "", sub = "", withSchema = false } = Astro.props;
+const esc = (s: string) => s.replace(/&(?!amp;|quot;|lt;|gt;|#)/g, "&amp;").replace(/"/g, "&quot;");
+const headHtml = head
+  .replaceAll("%%TITLE%%", esc(title))
+  .replaceAll("%%DESC%%", esc(desc))
+  .replaceAll("%%CANON%%", canon)
+  .replace("%%SCHEMA%%", withSchema ? schema : "");
+const nav = (key: string) => (active === key ? ' class="active"' : "");
+const headerHtml = header
+  .replace("%%A_home%%", nav("home"))
+  .replace("%%A_about%%", nav("about"))
+  .replace("%%A_services%%", active === "services" ? "active " : "")
+  .replace(sub ? `<li><a href="${sub}">` : "%%none%%", `<li class="active"><a href="${sub}">`);
+---
+<!doctype html>
+<html class="no-js" lang="en">
+<head set:html={headHtml} />
+<body>
+  <Fragment set:html={pre} />
+  <Fragment set:html={headerHtml} />
+  <main class="fix">
+    <slot />
+  </main>
+  <Fragment set:html={footer} />
+  <Fragment set:html={scripts} />
+</body>
+</html>
