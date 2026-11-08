@@ -6,3 +6,21 @@
   NODE_VERSION = "20"
 
 # Clean URLs: /about-us serves about-us.html (Netlify does this automatically with pretty URLs)
+
+[[redirects]]
+  from = "/linkedin-marketing*"
+  to = "/social-media-marketing"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/presentation-design*"
+  to = "/branding-creative"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/video-production*"
+  to = "/branding-creative"
+  status = 301
+  force = true

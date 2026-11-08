@@ -1,8 +1,8 @@
 ---
 import Base from "../layouts/Base.astro";
-import body from "../content/video-production.html?raw";
+import body from "../content/seo-services.html?raw";
 import pages from "../pages.json";
-const m = pages["video-production"];
+const m = pages["seo-services"];
 ---
 <Base title={m.title} desc={m.desc} canon={m.canon} active={m.active} sub={m.sub} withSchema={false}>
   <Fragment set:html={body} />

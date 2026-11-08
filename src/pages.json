@@ -2,15 +2,15 @@
  "index": {
   "file": "index.html",
   "title": "Best Digital Services/Marketing Company | Syfrows",
-  "desc": "Syfrows helps B2B, tech and manufacturing companies in the US, Europe and the Middle East win more deals with LinkedIn growth, sales decks, explainer videos and lead-generation systems.",
+  "desc": "Syfrows is a premium digital marketing agency for website development, app development, performance marketing, SEO and social media. Serving clients worldwide.",
   "canon": "https://www.syfrows.com/",
   "active": "home",
   "sub": ""
  },
  "about-us": {
   "file": "about-us.html",
-  "title": "About Syfrows | B2B Digital Marketing & Design Agency",
-  "desc": "Meet Syfrows: a B2B digital marketing and design agency based in Pune, India, serving clients across the US, Canada, Europe and the Middle East since 2021.",
+  "title": "About Syfrows | Premium Digital Marketing, Web & App Agency",
+  "desc": "Meet Syfrows: a digital marketing, website and app development agency based in Pune, India, serving clients worldwide since 2021.",
   "canon": "https://www.syfrows.com/about-us",
   "active": "about",
   "sub": ""
@@ -18,15 +18,15 @@
  "contact": {
   "file": "contact.html",
   "title": "Contact Syfrows | Book a Free 30-Minute Strategy Call",
-  "desc": "Talk to Syfrows about LinkedIn growth, sales decks, explainer videos or lead generation. Based in India, working with US, UK and EU time zones.",
+  "desc": "Talk to Syfrows about website development, app development, performance marketing, SEO or social media. Serving clients worldwide.",
   "canon": "https://www.syfrows.com/contact",
   "active": "services",
   "sub": "contact.html"
  },
  "services-details": {
   "file": "services-details.html",
-  "title": "B2B Marketing Services: LinkedIn, Sales Decks, Video & Lead Gen | Syfrows",
-  "desc": "LinkedIn content and growth, sales and investor deck design, explainer video production, websites and marketing automation for B2B companies worldwide.",
+  "title": "Digital Marketing, Web & App Development Services | Syfrows",
+  "desc": "Website development, app development, performance marketing, SEO, social media marketing and branding for growing businesses worldwide.",
   "canon": "https://www.syfrows.com/services-details",
   "active": "services",
   "sub": "services-details.html"
@@ -34,7 +34,7 @@
  "project-details": {
   "file": "project-details.html",
   "title": "Case Studies & Portfolio | Syfrows",
-  "desc": "Selected work by Syfrows: websites, branding, LinkedIn programmes, decks and video for B2B and professional-services clients.",
+  "desc": "Selected work by Syfrows: websites, apps, performance campaigns, social media and branding for clients worldwide.",
   "canon": "https://www.syfrows.com/project-details",
   "active": "services",
   "sub": "project-details.html"
@@ -42,34 +42,10 @@
  "pricing": {
   "file": "pricing.html",
   "title": "Pricing & Packages | Syfrows B2B Marketing Agency",
-  "desc": "Transparent packages for B2B marketing, LinkedIn growth, deck design and lead generation. Invoicing in USD, EUR, AED and INR.",
+  "desc": "Transparent packages for website development, app development, performance marketing, SEO and social media. Invoicing in USD, EUR and INR.",
   "canon": "https://www.syfrows.com/pricing",
   "active": "services",
   "sub": "pricing.html"
- },
- "linkedin-marketing": {
-  "file": "linkedin-marketing.html",
-  "title": "B2B LinkedIn Marketing Agency | Syfrows",
-  "desc": "LinkedIn content, company page growth and thought-leadership programmes for B2B, tech and manufacturing companies in the US, UK and Europe.",
-  "canon": "https://www.syfrows.com/linkedin-marketing",
-  "active": "services",
-  "sub": "linkedin-marketing.html"
- },
- "presentation-design": {
-  "file": "presentation-design.html",
-  "title": "Sales Deck & Presentation Design Agency | Syfrows",
-  "desc": "Sales decks, investor decks, webinar slides and company presentations designed as fully editable PowerPoint files for B2B teams.",
-  "canon": "https://www.syfrows.com/presentation-design",
-  "active": "services",
-  "sub": "presentation-design.html"
- },
- "video-production": {
-  "file": "video-production.html",
-  "title": "B2B Explainer & Corporate Video Production | Syfrows",
-  "desc": "Explainer videos, corporate videos, webinar teasers and social video for B2B companies, from script to final edit.",
-  "canon": "https://www.syfrows.com/video-production",
-  "active": "services",
-  "sub": "video-production.html"
  },
  "lead-generation": {
   "file": "lead-generation.html",
@@ -94,5 +70,37 @@
   "canon": "https://www.syfrows.com/app-development",
   "active": "services",
   "sub": "app-development.html"
+ },
+ "performance-marketing": {
+  "file": "performance-marketing.html",
+  "title": "Performance Marketing Agency: Google, Meta & LinkedIn Ads | Syfrows",
+  "desc": "ROI-focused paid advertising on Google, Meta and LinkedIn. Campaign strategy, creatives, tracking and optimisation that turn ad spend into qualified leads and sales.",
+  "canon": "https://www.syfrows.com/performance-marketing",
+  "active": "services",
+  "sub": "performance-marketing.html"
+ },
+ "seo-services": {
+  "file": "seo-services.html",
+  "title": "SEO Services & Content Marketing Agency | Syfrows",
+  "desc": "Technical SEO, on-page optimisation, content marketing and AI search visibility that grow organic traffic and inbound leads.",
+  "canon": "https://www.syfrows.com/seo-services",
+  "active": "services",
+  "sub": "seo-services.html"
+ },
+ "social-media-marketing": {
+  "file": "social-media-marketing.html",
+  "title": "Social Media Marketing Agency: LinkedIn, Instagram & More | Syfrows",
+  "desc": "Social media strategy, content creation and community management for LinkedIn, Instagram, Facebook and YouTube that build your brand and generate leads.",
+  "canon": "https://www.syfrows.com/social-media-marketing",
+  "active": "services",
+  "sub": "social-media-marketing.html"
+ },
+ "branding-creative": {
+  "file": "branding-creative.html",
+  "title": "Branding, Graphic Design & Video Production Agency | Syfrows",
+  "desc": "Brand identity, logo design, graphic design, video production and presentations that make your business look premium across every touchpoint.",
+  "canon": "https://www.syfrows.com/branding-creative",
+  "active": "services",
+  "sub": "branding-creative.html"
  }
 }
