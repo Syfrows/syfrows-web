@@ -46,5 +46,37 @@
   "canon": "https://www.syfrows.com/pricing",
   "active": "services",
   "sub": "pricing.html"
+ },
+ "linkedin-marketing": {
+  "file": "linkedin-marketing.html",
+  "title": "B2B LinkedIn Marketing Agency | Syfrows",
+  "desc": "LinkedIn content, company page growth and thought-leadership programmes for B2B, tech and manufacturing companies in the US, UK and Europe.",
+  "canon": "https://www.syfrows.com/linkedin-marketing",
+  "active": "services",
+  "sub": "linkedin-marketing.html"
+ },
+ "presentation-design": {
+  "file": "presentation-design.html",
+  "title": "Sales Deck & Presentation Design Agency | Syfrows",
+  "desc": "Sales decks, investor decks, webinar slides and company presentations designed as fully editable PowerPoint files for B2B teams.",
+  "canon": "https://www.syfrows.com/presentation-design",
+  "active": "services",
+  "sub": "presentation-design.html"
+ },
+ "video-production": {
+  "file": "video-production.html",
+  "title": "B2B Explainer & Corporate Video Production | Syfrows",
+  "desc": "Explainer videos, corporate videos, webinar teasers and social video for B2B companies, from script to final edit.",
+  "canon": "https://www.syfrows.com/video-production",
+  "active": "services",
+  "sub": "video-production.html"
+ },
+ "lead-generation": {
+  "file": "lead-generation.html",
+  "title": "B2B Lead Generation & Marketing Automation | Syfrows",
+  "desc": "Outbound and inbound lead generation, CRM setup and marketing automation for B2B companies, connected to HubSpot and your sales process.",
+  "canon": "https://www.syfrows.com/lead-generation",
+  "active": "services",
+  "sub": "lead-generation.html"
  }
 }
