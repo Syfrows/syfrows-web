@@ -65,7 +65,7 @@
           window.dataLayer.push({ event: isNewsletter ? "sign_up" : "generate_lead", form_type: data.form_type });
         })
         .catch(function () {
-          message(form, "Something went wrong. Please email syfrows@gmail.com or call +91 7588071530.", false);
+          message(form, "Something went wrong. Please email info@syfrows.com or call +91 7588071530.", false);
         })
         .finally(function () { if (btn) btn.disabled = false; });
     });
