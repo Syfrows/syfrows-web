@@ -2238,3 +2238,44 @@
 }
 
 
+
+/* ===== Mobile/tablet fixes (Syfrows) ===== */
+@media (max-width: 1199.98px) {
+  .inner-about-form-wrap { position: relative; width: 100%; height: auto; margin: 40px 0 0; padding: 35px 25px; right: auto; top: auto; }
+}
+@media (max-width: 767.98px) {
+  html, body { overflow-x: hidden; }
+  .inner-about-form-wrap { padding: 30px 20px; }
+  .consultation-shape-wrap, .breadcrumb-shape-wrap { display: none; }
+  img { max-width: 100%; height: auto; }
+  .cs-card { padding: 22px !important; }
+  .cs-card h2 { font-size: 24px !important; }
+  table { display: block; overflow-x: auto; }
+}
+@media (max-width: 991.98px) {
+  .swiper-container.testimonial-active-three { margin-right: 0; }
+  .testimonial-item-three { padding: 50px 25px 35px; }
+}
+.cs-card h2, .cs-card h3, .cs-cta h3 { color: #fff; }
+@media (max-width: 767.98px) {
+  #contact-map { display: none; }
+  .inner-contact-info .list-wrap { margin-left: 0; padding-bottom: 60px; justify-content: flex-start; flex-direction: column; align-items: flex-start; }
+  .inner-contact-info .content p, .inner-contact-info .content a { word-break: break-word; }
+  .inner-contact-form-wrap { margin-bottom: 40px; }
+  .breadcrumb-shape-wrap-three, .breadcrumb-shape-wrap-two { display: none; }
+  .newsletter-area { padding: 40px 0 !important; }
+}
+/* dark content pages: readable headings */
+.svc-page h1, .svc-page h2, .svc-page h3, .svc-page h4, .svc-page h2 a, .svc-page h3 a { color: #fff; }
+.svc-page h2 a:hover, .svc-page h3 a:hover { color: #D0F000; }
+/* audit form */
+.audit-form input, .audit-form select, .audit-form textarea {
+  width: 100%; display: block; background: #2b2f3c; color: #fff; border: 1px solid #3d4252;
+  border-radius: 10px; padding: 14px 16px; margin-bottom: 14px; font-size: 15px;
+}
+.audit-form input::placeholder, .audit-form textarea::placeholder { color: #9aa0ae; }
+.audit-form textarea { min-height: 120px; }
+@media (max-width: 767.98px) {
+  .svc-page { padding-top: 60px !important; padding-bottom: 60px !important; }
+  .svc-page .btn { margin-bottom: 10px; }
+}
