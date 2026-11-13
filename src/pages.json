@@ -150,5 +150,13 @@
   "canon": "https://www.syfrows.com/case-studies",
   "active": "services",
   "sub": "case-studies.html"
+ },
+ "pay": {
+  "file": "pay.html",
+  "title": "Make a Payment | Syfrows Digital Services Agency",
+  "desc": "Pay Syfrows Digital Services Agency securely online via Razorpay: UPI, cards, net banking and international cards.",
+  "canon": "https://www.syfrows.com/pay",
+  "active": "home",
+  "sub": ""
  }
 }

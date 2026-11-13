@@ -2279,3 +2279,43 @@
   .svc-page { padding-top: 60px !important; padding-bottom: 60px !important; }
   .svc-page .btn { margin-bottom: 10px; }
 }
+
+/* ===== Syfrows CTAs ===== */
+.sy-btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; font-weight:600; font-size:15px; line-height:1; padding:15px 24px; border-radius:50px; transition:all .25s ease; white-space:nowrap; text-decoration:none; }
+.sy-btn i { font-size:13px; }
+.sy-btn-primary { background:#309000; color:#fff !important; box-shadow:0 8px 20px rgba(48,144,0,.28); }
+.sy-btn-primary:hover { background:#267300; transform:translateY(-2px); color:#fff; }
+.sy-btn-outline { background:transparent; color:#111827 !important; border:2px solid #309000; padding:13px 20px; }
+.sy-btn-outline:hover { background:#309000; color:#fff !important; }
+.sy-btn-light { background:#fff; color:#111827 !important; }
+.sy-btn-light:hover { background:#D0F000; }
+.sy-btn-ghost { background:#f1f5f0; color:#111827 !important; }
+.header-action > ul { margin-left:30px; gap:12px; }
+.header-action > ul li { margin-left:0 !important; }
+.sticky-menu .sy-btn { padding-top:13px; padding-bottom:13px; }
+@media (max-width:1399.98px){ .header-action .hdr-pay .sy-btn{ padding:12px 16px; } .header-action .sy-btn{ font-size:14px; } }
+.mobile-cta { display:flex; flex-direction:column; gap:12px; padding:25px; }
+.mobile-cta .sy-btn { width:100%; }
+.mobile-menu .mobile-cta .sy-btn-outline { color:#111827 !important; }
+/* CTA band */
+.sy-cta-band { background:#111827; padding:50px 0; }
+.sy-cta-inner { display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap; background:linear-gradient(120deg,#1b2a10,#1f2937); border:1px solid rgba(208,240,0,.25); border-radius:20px; padding:36px 40px; }
+.sy-cta-inner h3 { color:#fff; font-size:28px; margin:0 0 6px; }
+.sy-cta-inner p { color:#cbd5e1; margin:0; }
+.sy-cta-actions { display:flex; gap:12px; flex-wrap:wrap; }
+@media (max-width:767.98px){ .sy-cta-inner{ padding:26px 20px; text-align:center; justify-content:center; } .sy-cta-inner h3{ font-size:22px; } .sy-cta-actions{ width:100%; flex-direction:column; } .sy-cta-actions .sy-btn{ width:100%; } }
+/* Floating Let's Chat */
+.sy-chat { position:fixed; right:20px; bottom:20px; z-index:999; display:inline-flex; align-items:center; gap:8px; background:#25D366; color:#fff !important; padding:12px 18px; border-radius:50px; font-weight:600; font-size:15px; box-shadow:0 10px 25px rgba(0,0,0,.2); }
+.sy-chat i { font-size:22px; }
+.sy-chat:hover { background:#1ebe5a; transform:translateY(-2px); }
+.scroll-top.open { bottom:85px !important; }
+@media (max-width:767.98px){ .sy-chat{ right:14px; bottom:14px; padding:12px; } .sy-chat span{ display:none; } .scroll-top{ right:20px; } }
+/* Pay page */
+.pay-card { background:#fff; border-radius:20px; padding:40px; box-shadow:0 20px 50px rgba(17,24,39,.08); border:1px solid #eef0f3; }
+.pay-card h2 { font-size:28px; margin-bottom:10px; }
+.pay-list { list-style:none; padding:0; margin:20px 0; }
+.pay-list li { padding:8px 0; color:#4b5563; }
+.pay-list li i { color:#309000; margin-right:8px; }
+.pay-badges { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; color:#6b7280; font-size:13px; }
+.pay-badges span { background:#f3f4f6; border-radius:30px; padding:6px 12px; }
+@media (max-width:767.98px){ .pay-card{ padding:26px 20px; } }
