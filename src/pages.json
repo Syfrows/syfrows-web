@@ -158,5 +158,37 @@
   "canon": "https://www.syfrows.com/pay",
   "active": "home",
   "sub": ""
+ },
+ "privacy-policy": {
+  "file": "privacy-policy.html",
+  "title": "Privacy Policy | Syfrows",
+  "desc": "How Syfrows Digital Services Agency collects, uses and protects your personal information.",
+  "canon": "https://www.syfrows.com/privacy-policy",
+  "active": "home",
+  "sub": ""
+ },
+ "terms-and-conditions": {
+  "file": "terms-and-conditions.html",
+  "title": "Terms & Conditions | Syfrows",
+  "desc": "Terms and conditions for using syfrows.com and engaging Syfrows Digital Services Agency for digital marketing, web and app development services.",
+  "canon": "https://www.syfrows.com/terms-and-conditions",
+  "active": "home",
+  "sub": ""
+ },
+ "refund-policy": {
+  "file": "refund-policy.html",
+  "title": "Refund & Cancellation Policy | Syfrows",
+  "desc": "Refund and cancellation policy for Syfrows Digital Services Agency services and online payments.",
+  "canon": "https://www.syfrows.com/refund-policy",
+  "active": "home",
+  "sub": ""
+ },
+ "delivery-policy": {
+  "file": "delivery-policy.html",
+  "title": "Service Delivery Policy | Syfrows",
+  "desc": "How and when Syfrows Digital Services Agency delivers its digital services. No physical goods are shipped.",
+  "canon": "https://www.syfrows.com/delivery-policy",
+  "active": "home",
+  "sub": ""
  }
 }
