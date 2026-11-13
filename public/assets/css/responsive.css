@@ -2338,3 +2338,35 @@
 .mobile-cta .btn { display:block; width:100%; text-align:center; padding:17px 20px; }
 .sy-cta-actions .btn { padding:18px 30px; }
 @media (max-width:767.98px){ .sy-cta-actions .btn{ width:100%; } }
+/* ===== Case studies: light, readable layout ===== */
+.cs-page { background:#f5f7fb !important; }
+.cs-page .company-content > p { color:#4b5563 !important; font-size:17px; margin-bottom:35px; }
+.cs-page .cs-card { background:#fff; border:1px solid #e6e9ef !important; border-radius:20px; padding:44px 48px !important; box-shadow:0 18px 45px rgba(17,24,39,.06); }
+.cs-page .cs-card h2 { color:#111827 !important; font-size:32px; }
+.cs-page .cs-card h3 { color:#111827 !important; font-size:20px; margin-top:28px; }
+.cs-page .cs-card p, .cs-page .cs-card li { color:#4b5563 !important; font-size:16px; line-height:1.8; }
+.cs-page .cs-sector { color:#6b7280 !important; opacity:1 !important; }
+.cs-page .cs-tag { background:#309000 !important; }
+.cs-page .cs-stat { background:#f1f8ec !important; border-left:4px solid #309000 !important; border-radius:10px; }
+.cs-page .cs-stat strong { color:#1f5d00 !important; }
+.cs-page .cs-stat span { color:#374151 !important; }
+.cs-page .cs-cta { background:#111827; border:none !important; }
+.cs-page .cs-cta h3 { color:#fff !important; }
+.cs-page .cs-cta p { color:#cbd5e1 !important; }
+@media (max-width:767.98px){ .cs-page .cs-card{ padding:24px 20px !important; } .cs-page .cs-card h2{ font-size:24px; } }
+/* About: form always in normal flow (no overlap) */
+.inner-about-form-wrap { position: relative !important; right:auto !important; top:auto !important; width:100% !important; max-width:470px; height:auto !important; margin:0 0 0 auto !important; padding:40px 35px !important; }
+.inner-about-form-wrap .btn { position: static !important; margin-top:10px; }
+@media (max-width:991.98px){ .inner-about-form-wrap{ margin:40px 0 0 !important; max-width:none; } }
+/* All theme buttons: orange background (blue only on hover ripple) */
+.btn { background: var(--tg-primary-color); }
+.btn span { background: var(--tg-secondary-color); }
+.btn:hover, .btn:focus { color: var(--tg-white); }
+/* readable headings on dark service pages (remove low-contrast gradient text) */
+.svc-page h2, .svc-page h3, .svc-page h4 { background:none !important; -webkit-text-fill-color:currentColor !important; }
+.svc-page h2 { color:#fff !important; }
+.svc-page h3, .svc-page h4 { color:#D0F000 !important; }
+.cs-page h2, .cs-page h3 { color:#111827 !important; }
+.cs-page .cs-cta h3 { color:#fff !important; }
+/* contact header: decorative icons overlapped the title */
+.breadcrumb-shape-wrap-three { display:none; }
