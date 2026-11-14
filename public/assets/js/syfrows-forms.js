@@ -63,6 +63,7 @@
           form.reset();
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({ event: isNewsletter ? "sign_up" : "generate_lead", form_type: data.form_type });
+          if (window.syfrowsTrack) window.syfrowsTrack(isNewsletter ? "sign_up" : "generate_lead", { form_type: data.form_type, page_path: location.pathname });
         })
         .catch(function () {
           message(form, "Something went wrong. Please email info@syfrows.com or call +91 7588071530.", false);

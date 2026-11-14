@@ -1,7 +1,7 @@
 {
  "index": {
   "file": "index.html",
-  "title": "Best Digital Services/Marketing Company | Syfrows",
+  "title": "Digital Marketing, Web & App Development Agency | Syfrows",
   "desc": "Syfrows is a premium digital marketing agency for website development, app development, performance marketing, SEO and social media. Serving clients worldwide.",
   "canon": "https://www.syfrows.com/",
   "active": "home",
@@ -189,6 +189,30 @@
   "desc": "How and when Syfrows Digital Services Agency delivers its digital services. No physical goods are shipped.",
   "canon": "https://www.syfrows.com/delivery-policy",
   "active": "home",
+  "sub": ""
+ },
+ "digital-marketing-agency-pune": {
+  "file": "digital-marketing-agency-pune.html",
+  "title": "Digital Marketing Agency in Pune | SEO, Ads & Web | Syfrows",
+  "desc": "Pune digital marketing agency for SEO, Google & Meta ads, websites and apps. Senior team, lead-focused campaigns, free audit. Serving Pune, India & abroad.",
+  "canon": "https://www.syfrows.com/digital-marketing-agency-pune",
+  "active": "services",
+  "sub": ""
+ },
+ "how-to-choose-digital-marketing-agency": {
+  "file": "how-to-choose-digital-marketing-agency.html",
+  "title": "How to Choose a Digital Marketing Agency: 12-Point Checklist | Syfrows",
+  "desc": "A practical checklist for choosing a digital marketing agency in India or abroad: questions to ask, red flags, pricing models and how to compare proposals.",
+  "canon": "https://www.syfrows.com/how-to-choose-digital-marketing-agency",
+  "active": "",
+  "sub": ""
+ },
+ "b2b-lead-generation-manufacturers": {
+  "file": "b2b-lead-generation-manufacturers.html",
+  "title": "B2B Lead Generation for Manufacturers & Electronics | Syfrows",
+  "desc": "How manufacturers, PCB and EMS companies can generate qualified B2B leads online: SEO, LinkedIn, Google Ads, outreach and CRM follow-up that engineers trust.",
+  "canon": "https://www.syfrows.com/b2b-lead-generation-manufacturers",
+  "active": "",
   "sub": ""
  }
 }
