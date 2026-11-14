@@ -40,3 +40,11 @@ collections:
       - { label: Cover image description, name: image_alt, widget: string, required: false, hint: "Describe the image for Google and screen readers." }
       - { label: Draft (hide from website), name: draft, widget: boolean, default: false }
       - { label: Article, name: body, widget: markdown }
+      - label: FAQs (optional)
+        name: faqs
+        widget: list
+        required: false
+        hint: "Questions and answers shown at the end of the article. Google can show them in search results."
+        fields:
+          - { label: Question, name: question, widget: string }
+          - { label: Answer, name: answer, widget: text }

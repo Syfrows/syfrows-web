@@ -119,30 +119,6 @@
   "active": "home",
   "sub": ""
  },
- "website-development-cost": {
-  "file": "website-development-cost.html",
-  "title": "How Much Does a Website Cost in 2026? A Practical Pricing Guide | Syfrows",
-  "desc": "What a business website really costs in 2026, what drives the price, and how to budget for design, development, content, SEO and maintenance.",
-  "canon": "https://www.syfrows.com/website-development-cost",
-  "active": "home",
-  "sub": ""
- },
- "google-ads-vs-meta-ads": {
-  "file": "google-ads-vs-meta-ads.html",
-  "title": "Google Ads vs Meta Ads: Which Is Better for Your Business? | Syfrows",
-  "desc": "Google Ads vs Meta (Facebook and Instagram) Ads compared: how each works, when to use which, and how to split your budget for leads and sales.",
-  "canon": "https://www.syfrows.com/google-ads-vs-meta-ads",
-  "active": "home",
-  "sub": ""
- },
- "app-development-cost-india-vs-usa": {
-  "file": "app-development-cost-india-vs-usa.html",
-  "title": "App Development Cost: India vs USA vs UK Compared | Syfrows",
-  "desc": "How app development costs compare between India, the US and the UK, what affects the price, and how to hire an offshore app development team safely.",
-  "canon": "https://www.syfrows.com/app-development-cost-india-vs-usa",
-  "active": "home",
-  "sub": ""
- },
  "case-studies": {
   "file": "case-studies.html",
   "title": "Case Studies: Social Media, Web & Lead Generation | Syfrows",
@@ -197,22 +173,6 @@
   "desc": "Pune digital marketing agency for SEO, Google & Meta ads, websites and apps. Senior team, lead-focused campaigns, free audit. Serving Pune, India & abroad.",
   "canon": "https://www.syfrows.com/digital-marketing-agency-pune",
   "active": "services",
-  "sub": ""
- },
- "how-to-choose-digital-marketing-agency": {
-  "file": "how-to-choose-digital-marketing-agency.html",
-  "title": "How to Choose a Digital Marketing Agency: 12-Point Checklist | Syfrows",
-  "desc": "A practical checklist for choosing a digital marketing agency in India or abroad: questions to ask, red flags, pricing models and how to compare proposals.",
-  "canon": "https://www.syfrows.com/how-to-choose-digital-marketing-agency",
-  "active": "",
-  "sub": ""
- },
- "b2b-lead-generation-manufacturers": {
-  "file": "b2b-lead-generation-manufacturers.html",
-  "title": "B2B Lead Generation for Manufacturers & Electronics | Syfrows",
-  "desc": "How manufacturers, PCB and EMS companies can generate qualified B2B leads online: SEO, LinkedIn, Google Ads, outreach and CRM follow-up that engineers trust.",
-  "canon": "https://www.syfrows.com/b2b-lead-generation-manufacturers",
-  "active": "",
   "sub": ""
  }
 }

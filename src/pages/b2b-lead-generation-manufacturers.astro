@@ -1,9 +1,0 @@
----
-import Base from "../layouts/Base.astro";
-import body from "../content/b2b-lead-generation-manufacturers.html?raw";
-import pages from "../pages.json";
-const m = pages["b2b-lead-generation-manufacturers"];
----
-<Base title={m.title} desc={m.desc} canon={m.canon} active={m.active} sub={m.sub} withSchema={false}>
-  <Fragment set:html={body} />
-</Base>
