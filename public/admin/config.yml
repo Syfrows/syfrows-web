@@ -4,6 +4,7 @@ backend:
   repo: Syfrows/syfrows-web
   branch: main
   base_url: https://api.netlify.com
+  site_domain: transcendent-sherbet-fe4dfc.netlify.app
   commit_messages:
     create: "Dashboard: new {{collection}} \"{{slug}}\""
     update: "Dashboard: update {{collection}} \"{{slug}}\""
