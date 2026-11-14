@@ -2409,3 +2409,34 @@
 .testimonial-area-three .section-title .title, .testimonial-area-three .title { color:#111827 !important; }
 .testimonial-item-three { box-shadow:0 18px 45px rgba(17,24,39,.06); }
 .testimonial-nav .swiper-button-prev, .testimonial-nav .swiper-button-next { color:#111827 !important; }
+/* Accessibility (Nov 2026): readable contrast (WCAG AA) and heading levels */
+.btn,.btn:hover,.btn:focus{color:#111827!important}
+.sub-title,.link-btn,.section-title .sub-title,.footer-widget a:hover{color:#B4530A!important}
+.link-btn:hover{color:#8A3F06!important}
+p{color:#4B5563}
+.footer-area p,.footer-area li,.footer-area a{color:#E5E7EB}
+.popup-video{color:#4B5563!important}
+.footer-widget h3.fw-title{font-size:20px;line-height:24px;margin:0 0 30px;font-weight:700;color:#fff}
+.testimonial-content-three h3.title{font-size:20px;line-height:24px;margin:0 0 10px;font-weight:700}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #2563EB;outline-offset:2px}
+.contact-info-item .content h3.title{font-size:24px;font-weight:600;line-height:1.2;margin:0 0 5px;color:#0b0b0b}
+.consultation-list p.title{font-size:30px;font-weight:700;line-height:36px;margin:0 0 5px;color:#C0392B!important}
+p,.info,.info-one,.popup-video{color:#4B5563!important}
+.footer-area p,.footer-area li,.footer-area a,.footer-area span{color:#E5E7EB!important}
+.breadcrumb-item a,.breadcrumb a{color:#4B5563!important}
+.cs-tag{background:#2A7A00!important}
+.sy-chat,.sy-chat span{background:#128C3E!important;color:#fff!important}
+p{opacity:1!important}
+.cs-page .cs-tag{background:#2A7A00!important}
+.sy-chat,.sy-chat span,.sy-chat:hover{background:#0E7A34!important}
+.pricing-list h3.title{font-size:16px;font-weight:700;line-height:1.2;margin:0 0 15px;color:#fff}
+.pricing-top p{color:#E5E7EB!important}
+.pricing-item.active .pricing-top h2.title,.pricing-item.active .pricing-top p,.pricing-item.active .pricing-top span{color:#111827!important}
+.nav-link.active,.pricing-item-wrap .nav-link.active{color:#111827!important}
+main .company-content a:not(.btn),main p a,main li a{color:#B4530A}
+main p a:not(.btn),main li a:not(.btn),main td a:not(.btn){text-decoration:underline;text-underline-offset:2px}
+.pricing-item.active .pricing-list,.pricing-item.active .pricing-list *{color:#111827!important}
+.pay-badges span{color:#374151!important}
+.testimonial-content-three span{color:#4B5563!important}
+.company-content h2.pol-h{font-size:21px;margin-top:26px;line-height:1.3}
+.pricing-item.active .btn{background:#111827!important;color:#fff!important}
