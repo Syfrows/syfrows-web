@@ -1,0 +1,41 @@
+# Syfrows website dashboard (Decap CMS). Every save is committed to GitHub and Netlify publishes it in about a minute.
+backend:
+  name: github
+  repo: Syfrows/syfrows-web
+  branch: main
+  base_url: https://api.netlify.com
+  commit_messages:
+    create: "Dashboard: new {{collection}} \"{{slug}}\""
+    update: "Dashboard: update {{collection}} \"{{slug}}\""
+    delete: "Dashboard: delete {{collection}} \"{{slug}}\""
+    uploadMedia: "Dashboard: upload {{path}}"
+    deleteMedia: "Dashboard: delete {{path}}"
+
+site_url: https://www.syfrows.com
+display_url: https://www.syfrows.com
+logo_url: https://www.syfrows.com/syfrows-logo-512.png
+media_folder: public/assets/img/blog
+public_folder: /assets/img/blog
+publish_mode: simple
+
+collections:
+  - name: blog
+    label: Blog posts
+    label_singular: Blog post
+    description: Articles appear on syfrows.com/blog and at syfrows.com/<url-slug>.
+    folder: src/posts
+    create: true
+    slug: "{{slug}}"
+    identifier_field: title
+    summary: "{{title}} ({{date}})"
+    sortable_fields: [date, title]
+    fields:
+      - { label: Title, name: title, widget: string, hint: "The headline. Aim for under 60 characters and include the main search phrase." }
+      - { label: Meta description, name: description, widget: text, hint: "Shown under the title in Google and on the blog list. 140–160 characters." }
+      - { label: Google title (optional), name: seo_title, widget: string, required: false, hint: "Leave empty to use 'Title | Syfrows'." }
+      - { label: Publish date, name: date, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: Author, name: author, widget: string, default: "Syfrows Team" }
+      - { label: Cover image, name: image, widget: image, required: false }
+      - { label: Cover image description, name: image_alt, widget: string, required: false, hint: "Describe the image for Google and screen readers." }
+      - { label: Draft (hide from website), name: draft, widget: boolean, default: false }
+      - { label: Article, name: body, widget: markdown }

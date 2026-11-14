@@ -1,0 +1,41 @@
+---
+import Base from "../layouts/Base.astro";
+import { posts } from "../lib-posts.js";
+export function getStaticPaths() {
+  return posts.map((p) => ({ params: { post: p.slug }, props: { p } }));
+}
+const { p } = Astro.props;
+const { Content } = p;
+const url = `https://www.syfrows.com/${p.slug}`;
+const date = String(p.date).slice(0, 10);
+const book = "https://meetings-na2.hubspot.com/syfrows-digital-services-agency";
+const org = { "@type": "Organization", name: "Syfrows Digital Services Agency", url: "https://www.syfrows.com/", logo: { "@type": "ImageObject", url: "https://www.syfrows.com/syfrows-logo-512.png" } };
+const ld = [
+  { "@context": "https://schema.org", "@type": "BlogPosting", headline: p.title, description: p.description, datePublished: date, dateModified: date, author: org, publisher: org, mainEntityOfPage: url, image: p.image ? "https://www.syfrows.com" + p.image : "https://www.syfrows.com/syfrows-og.jpg" },
+  { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.syfrows.com/" },
+    { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.syfrows.com/blog" },
+    { "@type": "ListItem", position: 3, name: p.title, item: url } ] },
+];
+---
+<Base title={p.seo_title || `${p.title} | Syfrows`} desc={p.description} canon={url} active="" sub="" withSchema={false}>
+  <section class="breadcrumb-area breadcrumb-area-two pt-175">
+    <div class="container"><div class="row"><div class="col-12"><div class="breadcrumb-content">
+      <h1 class="title">{p.title}</h1>
+      <nav aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="index.html">Home</a></li><li class="breadcrumb-item"><a href="blog.html">Blog</a></li><li class="breadcrumb-item active" aria-current="page">Article</li></ol></nav>
+    </div></div></div></div>
+  </section>
+  <section class="company-area svc-page pt-110 pb-120">
+    <style is:inline>.svc-page .company-content h2{font-size:28px;margin-top:40px}.svc-page .company-content h3{font-size:21px;margin-top:26px}.svc-page .company-content ul,.svc-page .company-content ol{padding-left:20px}.svc-page .company-content ul{list-style:disc}.svc-page .company-content img{max-width:100%;height:auto;border-radius:12px;margin:20px 0}.svc-page table{width:100%;border-collapse:collapse;margin:20px 0}.svc-page td,.svc-page th{border:1px solid #e3e6ec;padding:10px;text-align:left}.svc-page .cta-box{border:1px solid #e3e6ec;padding:28px;border-radius:12px;margin-top:40px}</style>
+    <div class="container"><div class="row justify-content-center"><div class="col-xl-8 col-lg-10">
+      <div class="company-content">
+        <p style="opacity:.7">Published {date} · {p.author || "Syfrows Team"}</p>
+        {p.image && <img src={p.image} alt={p.image_alt || p.title} loading="lazy" />}
+        <Content />
+        <div class="cta-box"><h3 style="margin-top:0">Want an expert opinion on your project?</h3><p>Get a free website and marketing audit from Syfrows within 48 hours, or book a free 30-minute strategy call.</p><a href="free-audit.html" class="btn">Get a Free Audit <span></span></a> &nbsp; <a href={book} target="_blank" rel="noopener" class="btn">Book a Free Call <span></span></a></div>
+        <p class="mt-40"><a href="blog.html">&larr; All articles</a></p>
+      </div>
+    </div></div></div>
+  </section>
+  {ld.map((o) => <script type="application/ld+json" set:html={JSON.stringify(o)} />)}
+</Base>
