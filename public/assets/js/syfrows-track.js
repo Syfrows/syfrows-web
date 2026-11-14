@@ -3,7 +3,9 @@
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
   function send(name, params) {
-    try { window.gtag("event", name, params || {}); } catch (e) {}
+    params = params || {};
+    params.send_to = "G-J68BRDSGJ0";
+    try { window.gtag("event", name, params); } catch (e) {}
   }
   window.syfrowsTrack = send;
   document.addEventListener("click", function (e) {
