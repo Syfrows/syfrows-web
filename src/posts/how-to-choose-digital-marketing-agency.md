@@ -4,6 +4,8 @@ description: 'A practical checklist for choosing a digital marketing agency in I
 seo_title: 'How to Choose a Digital Marketing Agency: 12-Point Checklist | Syfrows'
 date: '2026-11-14'
 author: Syfrows Team
+image: /assets/img/blog/how-to-choose-digital-marketing-agency.jpg
+image_alt: "Checklist for choosing a digital marketing agency"
 draft: false
 faqs:
 - question: How much should I pay a digital marketing agency?

@@ -20,7 +20,7 @@ const ld = [
 const faqs = Array.isArray(p.faqs) ? p.faqs.filter((f) => f && f.question && f.answer) : [];
 if (faqs.length) ld.push({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.answer } })) });
 ---
-<Base title={p.seo_title || `${p.title} | Syfrows`} desc={p.description} canon={url} active="" sub="" withSchema={false}>
+<Base title={p.seo_title || `${p.title} | Syfrows`} desc={p.description} canon={url} active="" sub="" withSchema={false} image={p.image || ""}>
   <section class="breadcrumb-area breadcrumb-area-two pt-175">
     <div class="container"><div class="row"><div class="col-12"><div class="breadcrumb-content">
       <h1 class="title">{p.title}</h1>

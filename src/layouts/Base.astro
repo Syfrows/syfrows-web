@@ -6,14 +6,15 @@ import footer from "../partials/footer.html?raw";
 import scripts from "../partials/scripts.html?raw";
 import schema from "../partials/schema.html?raw";
 
-interface Props { title: string; desc: string; canon: string; active?: string; sub?: string; withSchema?: boolean }
-const { title, desc, canon, active = "", sub = "", withSchema = false } = Astro.props;
+interface Props { title: string; desc: string; canon: string; active?: string; sub?: string; withSchema?: boolean; image?: string }
+const { title, desc, canon, active = "", sub = "", withSchema = false, image = "" } = Astro.props;
 const esc = (s: string) => s.replace(/&(?!amp;|quot;|lt;|gt;|#)/g, "&amp;").replace(/"/g, "&quot;");
 const headHtml = head
   .replaceAll("%%TITLE%%", esc(title))
   .replaceAll("%%DESC%%", esc(desc))
   .replaceAll("%%CANON%%", canon)
-  .replace("%%SCHEMA%%", withSchema ? schema : "");
+  .replace("%%SCHEMA%%", withSchema ? schema : "")
+  .replaceAll("https://www.syfrows.com/syfrows-og.jpg", image ? "https://www.syfrows.com" + image : "https://www.syfrows.com/syfrows-og.jpg");
 const nav = (key: string) => (active === key ? ' class="active"' : "");
 const headerHtml = header
   .replace("%%A_home%%", nav("home"))

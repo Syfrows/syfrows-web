@@ -4,6 +4,8 @@ description: 'Google Ads vs Meta (Facebook and Instagram) Ads compared: how each
 seo_title: 'Google Ads vs Meta Ads: Which Is Better for Your Business? | Syfrows'
 date: '2026-11-09'
 author: Syfrows Team
+image: /assets/img/blog/google-ads-vs-meta-ads.jpg
+image_alt: "Google Ads vs Meta Ads comparison cover"
 draft: false
 ---
 

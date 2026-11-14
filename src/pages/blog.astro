@@ -5,7 +5,11 @@ import pages from "../pages.json";
 import { posts } from "../lib-posts.js";
 const m = pages["blog"];
 const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-const items = posts.map((p) => `<h2 style="font-size:24px"><a href="${p.slug}.html">${esc(p.title)}</a></h2><p>${esc(p.description)}</p><a href="${p.slug}.html" class="link-btn">Read article <i class="far fa-long-arrow-right"></i></a>\n`).join("");
+const card = (p) => {
+  const img = p.image ? '<a href="' + p.slug + '.html"><img src="' + p.image + '" alt="' + esc(p.image_alt || p.title) + '" loading="lazy" style="width:100%;max-width:640px;border-radius:12px;margin:30px 0 6px;display:block"></a>' : "";
+  return img + '<h2 style="font-size:24px"><a href="' + p.slug + '.html">' + esc(p.title) + '</a></h2><p>' + esc(p.description) + '</p><a href="' + p.slug + '.html" class="link-btn">Read article <i class="far fa-long-arrow-right"></i></a>\n';
+};
+const items = posts.map(card).join("");
 const marker = '<p>Practical guides on websites, apps, performance marketing, SEO and growth.</p>';
 const html = body.replace(marker, marker + "\n" + items);
 ---

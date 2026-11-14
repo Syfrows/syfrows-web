@@ -4,6 +4,8 @@ description: How app development costs compare between India, the US and the UK,
 seo_title: 'App Development Cost: India vs USA vs UK Compared | Syfrows'
 date: '2026-11-09'
 author: Syfrows Team
+image: /assets/img/blog/app-development-cost-india-vs-usa.jpg
+image_alt: "App development cost India vs USA vs UK cover with globe"
 draft: false
 ---
 

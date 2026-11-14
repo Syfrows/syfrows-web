@@ -4,6 +4,8 @@ description: What a business website really costs in 2026, what drives the price
 seo_title: How Much Does a Website Cost in 2026? A Practical Pricing Guide | Syfrows
 date: '2026-11-09'
 author: Syfrows Team
+image: /assets/img/blog/website-development-cost.jpg
+image_alt: "Website cost guide 2026 cover: browser window with rupee price tag"
 draft: false
 ---
 

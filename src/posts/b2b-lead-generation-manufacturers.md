@@ -4,6 +4,8 @@ description: 'How manufacturers, PCB and EMS companies can generate qualified B2
 seo_title: B2B Lead Generation for Manufacturers & Electronics | Syfrows
 date: '2026-11-14'
 author: Syfrows Team
+image: /assets/img/blog/b2b-lead-generation-manufacturers.jpg
+image_alt: "B2B lead generation for electronics manufacturers cover with chip and growth chart"
 draft: false
 faqs:
 - question: Does digital marketing work for manufacturing companies?
