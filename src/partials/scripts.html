@@ -16,4 +16,9 @@
     <script src="assets/js/main.js?v=20261113c" defer></script>
 <script src="assets/js/syfrows-track.js?v=2" defer></script>
 <script src="assets/js/syfrows-forms.js?v=4" defer></script>
-<script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/246133879.js"></script>
+<script>
+/* Load HubSpot after the page is interactive (first interaction or 5s), so it doesn't slow the first paint. */
+(function(){var done=false;function load(){if(done)return;done=true;var s=document.createElement('script');s.id='hs-script-loader';s.async=true;s.src='https://js-na2.hs-scripts.com/246133879.js';document.body.appendChild(s);}
+['scroll','pointerdown','keydown','touchstart'].forEach(function(e){addEventListener(e,load,{once:true,passive:true});});
+addEventListener('load',function(){setTimeout(load,5000);});})();
+</script>

@@ -13,7 +13,7 @@ const headHtml = head
   .replaceAll("%%TITLE%%", esc(title))
   .replaceAll("%%DESC%%", esc(desc))
   .replaceAll("%%CANON%%", canon)
-  .replace("%%SCHEMA%%", withSchema ? schema : "")
+  .replace("%%SCHEMA%%", (withSchema ? schema : "") + (active === "home" ? '\n    <link rel="preload" as="image" href="assets/img/slider/slider_img01.png" fetchpriority="high">\n    <link rel="preload" as="image" href="assets/img/slider/slider_shape05.png">' : ""))
   .replaceAll("https://www.syfrows.com/syfrows-og.jpg", image ? "https://www.syfrows.com" + image : "https://www.syfrows.com/syfrows-og.jpg");
 const nav = (key: string) => (active === key ? ' class="active"' : "");
 const headerHtml = header
