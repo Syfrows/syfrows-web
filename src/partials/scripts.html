@@ -1,15 +1,10 @@
-
-
-    <script src="assets/js/vendor/jquery-3.6.0.min.js" defer></script>
-    <script src="assets/js/bootstrap.min.js" defer></script>
-    <script src="assets/js/jquery.odometer.min.js" defer></script>
-    <script src="assets/js/swiper-bundle.min.js" defer></script>
-    <script src="assets/js/jquery.appear.js" defer></script>
-    <script src="assets/js/wow.min.js" defer></script>
-    <script src="assets/js/plugin-stubs.js" defer></script>
-    <script src="assets/js/main.js?v=20261114a" defer></script>
-<script src="assets/js/syfrows-track.js?v=2" defer></script>
-<script src="assets/js/syfrows-forms.js?v=4" defer></script>
+<script>
+/* Site scripts start after the first paint, so they never delay what the visitor sees. They still run in order. */
+(function(){var list=["assets/js/vendor/jquery-3.6.0.min.js", "assets/js/bootstrap.min.js", "assets/js/jquery.odometer.min.js", "assets/js/swiper-bundle.min.js", "assets/js/jquery.appear.js", "assets/js/wow.min.js", "assets/js/plugin-stubs.js", "assets/js/main.js?v=20261114a", "assets/js/syfrows-track.js?v=2", "assets/js/syfrows-forms.js?v=4"];var started=false;
+function done(){if(document.readyState==='complete'&&window.jQuery){window.jQuery(window).trigger('load');}}
+function start(){if(started)return;started=true;var left=list.length;list.forEach(function(src){var s=document.createElement('script');s.src=src;s.async=false;s.onload=s.onerror=function(){if(--left===0)done();};document.body.appendChild(s);});}
+requestAnimationFrame(function(){setTimeout(start,0);});setTimeout(start,1500);})();
+</script>
 <script>
 /* Load HubSpot after the page is interactive (first interaction or 5s), so it doesn't slow the first paint. */
 (function(){var done=false;function load(){if(done)return;done=true;var s=document.createElement('script');s.id='hs-script-loader';s.async=true;s.src='https://js-na2.hs-scripts.com/246133879.js';document.body.appendChild(s);}
