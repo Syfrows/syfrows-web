@@ -48,3 +48,4 @@ main p a:not(.btn),main li a:not(.btn),main td a:not(.btn){text-decoration:under
 @media (max-width:1199px),(hover:none),(prefers-reduced-motion:reduce){.slider-shape-wrap img,.breadcrumb-shape-wrap img,.success-shape-wrap img,.agency-shape-wrap img,.testimonial-shape-wrap img,.pulse::after{animation:none!important}.mouseCursor{display:none!important}}
 @media (max-width:1199px){.services-shape{display:none!important}}
 @media (max-width:1199px){.slider-shape-wrap img:nth-child(5){display:none!important}}
+@media (max-width:1199px){.slider-shape-wrap{display:none!important}}
