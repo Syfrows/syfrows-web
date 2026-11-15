@@ -2440,3 +2440,6 @@ main p a:not(.btn),main li a:not(.btn),main td a:not(.btn){text-decoration:under
 .testimonial-content-three span{color:#4B5563!important}
 .company-content h2.pol-h{font-size:21px;margin-top:26px;line-height:1.3}
 .pricing-item.active .btn{background:#111827!important;color:#fff!important}
+@media (max-width:1199px),(hover:none),(prefers-reduced-motion:reduce){.slider-shape-wrap img,.breadcrumb-shape-wrap img,.success-shape-wrap img,.agency-shape-wrap img,.testimonial-shape-wrap img,.pulse::after{animation:none!important}.mouseCursor{display:none!important}}
+@media (max-width:1199px){.services-shape{display:none!important}}
+@media (max-width:1199px){.slider-shape-wrap img:nth-child(5){display:none!important}}
