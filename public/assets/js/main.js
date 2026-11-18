@@ -72,11 +72,14 @@ $(window).on('scroll', function () {
 if ($('.scroll-to-target').length) {
   $(".scroll-to-target").on('click', function () {
     var target = $(this).attr('data-target');
-    // animate
-    $('html, body').animate({
-      scrollTop: $(target).offset().top
-    }, 1000);
-
+    var top = (target === 'html' || target === 'body') ? 0 : $(target).offset().top;
+    // Native smooth scrolling: the browser runs it off the main thread, so it
+    // stays fast on long pages. jQuery's animate() was taking a full second.
+    if ('scrollBehavior' in document.documentElement.style) {
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    } else {
+      $('html, body').animate({ scrollTop: top }, 300);
+    }
   });
 }
 
