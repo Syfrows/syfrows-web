@@ -49,3 +49,6 @@ main p a:not(.btn),main li a:not(.btn),main td a:not(.btn){text-decoration:under
 @media (max-width:1199px){.services-shape{display:none!important}}
 @media (max-width:1199px){.slider-shape-wrap img:nth-child(5){display:none!important}}
 @media (max-width:1199px){.slider-shape-wrap{display:none!important}}
+.services-icon-three img{width:55px;height:55px;object-fit:contain}
+.services-area-three .services-item-three{height:100%;margin-bottom:10px}
+.services-area-three .row.services-active>[class*=col-]:not(.col-12){display:flex;margin-bottom:20px}
