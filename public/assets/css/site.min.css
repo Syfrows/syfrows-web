@@ -58,7 +58,7 @@ main p a:not(.btn),main li a:not(.btn),main td a:not(.btn){text-decoration:under
 .pricing-area .pricing-item{width:100%;height:100%;display:flex;flex-direction:column}
 .pricing-area .pricing-item .pricing-btn{margin-top:auto}
 
-@media (max-width:991.98px){.row>.col-lg-6.order-0{order:2!important}}
+
 
 @media (min-width:1200px){.slider-area{padding:140px 0 110px}.slider-content .title{font-size:60px;margin-bottom:22px}.slider-content p{margin-bottom:26px}}
 @media (min-width:992px) and (max-width:1199.98px){.slider-area{padding:110px 0 70px}.slider-content .title{font-size:52px;margin-bottom:20px}.slider-content p{margin-bottom:22px}}
@@ -69,3 +69,44 @@ main p a:not(.btn),main li a:not(.btn),main td a:not(.btn){text-decoration:under
 @media (max-width:767.98px){#contact-map{height:280px!important}}
 
 @media (min-width:992px){.pt-120{padding-top:90px}.pb-120{padding-bottom:90px}.pt-110{padding-top:85px}.pb-100{padding-bottom:80px}.pt-100{padding-top:80px}}
+
+/* Our Success: all four tiles in one row, text centred above them */
+.counter-area-two .counter-item-wrap-two .list-wrap{justify-content:center;gap:24px;margin-top:40px}
+.counter-area-two .counter-item-two{width:230px;min-height:200px}
+@media (max-width:991.98px){.counter-area-two .counter-item-two{width:calc(25% - 18px);min-width:160px;min-height:170px}}
+@media (max-width:575.98px){.counter-area-two .counter-item-two{width:calc(50% - 12px);min-width:0}}
+.counter-area-two .counter-content{max-width:820px;margin:0 auto}
+.counter-area-two .counter-content .info{margin-left:auto;margin-right:auto}
+/* What We Do: three across from tablet up */
+@media (min-width:576px){.services-area-three .row.services-active>.col-md-4,.services-area-three .row.services-active>.col-6{flex:0 0 auto;width:33.3333%}}
+
+/* Testimonials: every card the same height */
+.testimonial-active-three .swiper-wrapper{align-items:stretch}
+.testimonial-active-three .swiper-slide{height:auto;display:flex}
+.testimonial-active-three .testimonial-item-three{width:100%;height:100%;display:flex;flex-direction:column}
+.testimonial-active-three .testimonial-content-three{flex:1}
+
+@media (min-width:992px){.testimonial-area-three{padding:80px 0 70px}}
+@media (max-width:991.98px){.testimonial-area-three{padding:60px 0 50px}}
+
+/* Service cards: equal height, links aligned along the bottom */
+.services-area-three .services-item-three{display:flex;flex-direction:column}
+.services-area-three .services-content-three{display:flex;flex-direction:column;flex:1}
+.services-area-three .services-content-three .link-btn{margin-top:auto}
+.services-area-three .row.services-active>[class*=col-]:not(.col-12){margin-bottom:24px}
+
+/* Services panel: trimmed inner padding so the cards are not marooned */
+@media (min-width:1200px){.services-item-wrap{padding:70px 90px 60px}}
+@media (min-width:992px) and (max-width:1199.98px){.services-item-wrap{padding:60px 60px 50px}}
+@media (max-width:991.98px){.services-item-wrap{padding:50px 34px 40px}}
+@media (min-width:992px){.agency-area{padding-top:80px}}
+@media (max-width:991.98px){.agency-area{padding-top:60px}}
+
+/* Testimonial dots sit closer to the cards; CTA band tightened */
+.testimonial-area-three .swiper-pagination{margin-top:18px;position:static}
+.sy-cta-band{padding:36px 0}
+@media (max-width:991.98px){.sy-cta-band{padding:28px 0}}
+
+/* Contact form card: the theme pushed it down 180px and padded 100px below */
+@media (min-width:1200px){.inner-contact-form-wrap{margin-top:90px!important;padding:45px 40px 45px 60px!important}}
+@media (max-width:1199.98px){.inner-contact-form-wrap{margin-top:0!important;padding:40px 30px!important}}
