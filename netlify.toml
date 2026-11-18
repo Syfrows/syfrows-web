@@ -25,3 +25,17 @@
   status = 301
   force = true
 
+
+# Collapse the .html duplicates onto the clean URLs, so each page
+# answers on one address only.
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/:page.html"
+  to = "/:page"
+  status = 301
+  force = true
