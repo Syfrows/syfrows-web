@@ -54,8 +54,8 @@ B2B cycles are long. Log every RFQ in a CRM, respond within hours, and nurture c
 
 | Weeks | Focus |
 | --- | --- |
-| 1–3 | Tracking setup, capability pages, RFQ form, Google Business Profile. |
-| 4–8 | Google Ads on top capability terms, LinkedIn page content, first outreach lists. |
-| 9–13 | SEO guides, LinkedIn ads, review cost per RFQ and double down on what works. |
+| 1-3 | Tracking setup, capability pages, RFQ form, Google Business Profile. |
+| 4-8 | Google Ads on top capability terms, LinkedIn page content, first outreach lists. |
+| 9-13 | SEO guides, LinkedIn ads, review cost per RFQ and double down on what works. |
 
 Related: [B2B lead generation services](lead-generation.html) · [SEO services](seo-services.html) · [Performance marketing](performance-marketing.html) · [Case studies](case-studies.html)

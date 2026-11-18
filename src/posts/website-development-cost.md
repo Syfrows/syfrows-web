@@ -14,7 +14,7 @@ draft: false
 ## The main types of business websites
 
 - **Template or landing-page site:** a few pages built on an existing theme. Fast and affordable, but limited in design and performance.
-- **Custom marketing website:** a unique design, 8–25 pages, built for speed, SEO and lead generation, with forms connected to your CRM.
+- **Custom marketing website:** a unique design, 8-25 pages, built for speed, SEO and lead generation, with forms connected to your CRM.
 - **Advanced website or web platform:** custom functionality such as customer portals, calculators, multilingual content, e-commerce or complex integrations.
 
 ## What drives website cost
