@@ -2447,3 +2447,8 @@ main p a:not(.btn),main li a:not(.btn),main td a:not(.btn){text-decoration:under
 .services-icon-three img{width:55px;height:55px;object-fit:contain}
 .services-area-three .services-item-three{height:100%;margin-bottom:10px}
 .services-area-three .row.services-active>[class*=col-]:not(.col-12){display:flex;margin-bottom:20px}
+
+.breadcrumb-content .title{line-height:1.15}
+.pricing-area .tab-content .row>[class*=col-]{display:flex}
+.pricing-area .pricing-item{width:100%;height:100%;display:flex;flex-direction:column}
+.pricing-area .pricing-item .pricing-btn{margin-top:auto}
