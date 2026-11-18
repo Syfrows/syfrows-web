@@ -62,3 +62,10 @@ main p a:not(.btn),main li a:not(.btn),main td a:not(.btn){text-decoration:under
 
 @media (min-width:1200px){.slider-area{padding:140px 0 110px}.slider-content .title{font-size:60px;margin-bottom:22px}.slider-content p{margin-bottom:26px}}
 @media (min-width:992px) and (max-width:1199.98px){.slider-area{padding:110px 0 70px}.slider-content .title{font-size:52px;margin-bottom:20px}.slider-content p{margin-bottom:22px}}
+
+.slider-content p{text-transform:none}
+.inner-contact-info .list-wrap{margin-left:0!important;padding-bottom:60px!important;padding-top:10px!important;justify-content:flex-start!important;max-width:660px;gap:20px 36px!important}
+#contact-map{height:480px!important;margin-bottom:40px!important}
+@media (max-width:767.98px){#contact-map{height:280px!important}}
+
+@media (min-width:992px){.pt-120{padding-top:90px}.pb-120{padding-bottom:90px}.pt-110{padding-top:85px}.pb-100{padding-bottom:80px}.pt-100{padding-top:80px}}
