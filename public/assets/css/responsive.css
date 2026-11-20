@@ -2627,3 +2627,68 @@ html{scroll-behavior:auto!important}
 @media (min-width:992px) and (max-width:1199.98px){.slider-content .title{font-size:44px;line-height:1.12}}
 @media (max-width:991.98px){.slider-content .title{font-size:40px;line-height:1.14}}
 @media (max-width:575.98px){.slider-content .title{font-size:32px}}
+
+/* Featured case studies */
+.sy-case{height:100%;display:flex;flex-direction:column;background:#fff;border:1px solid #EEF2F7;border-radius:16px;padding:30px 28px;box-shadow:0 10px 30px rgba(15,23,42,.05)}
+.sy-case-tag{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.2px;color:#B4530A!important;background:#FFF4EA;border-radius:20px;padding:5px 14px;margin-bottom:14px;align-self:flex-start}
+.sy-case-name{font-size:24px;line-height:1.25;margin:0 0 14px}
+.sy-case-line{font-size:15px;line-height:1.65;margin:0 0 12px}
+.sy-case-line strong{color:#111827!important}
+.sy-case-stat{margin:auto 0 20px;padding:14px 18px;border-left:4px solid #309000;background:#F4FAF1;border-radius:0 10px 10px 0}
+.sy-case-stat strong{display:block;font-size:26px;font-weight:700;color:#111827!important;line-height:1.2}
+.sy-case-stat span{font-size:14px;color:#4B5563!important}
+.sy-case .link-btn{margin-top:auto}
+
+/* Global collaboration */
+.sy-global{background:#F8FAFC}
+.sy-global-card{height:100%;background:#fff;border:1px solid #EEF2F7;border-radius:16px;padding:30px 28px}
+.sy-global-head{font-size:20px;line-height:1.3;margin:0 0 12px}
+.sy-global-card p{font-size:15px;line-height:1.7;margin:0}
+@media (max-width:991.98px){
+ .sy-case,.sy-global-card{padding:24px 22px}
+ .sy-case-name{font-size:21px}
+ .sy-global-head{font-size:18px}
+}
+
+/* Three-step qualification form */
+.sy-qual{max-width:720px;background:#fff;border:1px solid #E6EBF2;border-radius:18px;padding:30px 30px 26px;box-shadow:0 14px 40px rgba(15,23,42,.06)}
+.sy-qual-steps{display:flex;gap:10px;list-style:none;margin:0 0 24px;padding:0}
+.sy-qual-steps li{flex:1;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:#9AA4B2!important;border-top:3px solid #E6EBF2;padding-top:10px}
+.sy-qual-steps li span{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#E6EBF2;color:#6B7280;font-size:12px}
+.sy-qual-steps li.is-on{color:#111827!important;border-top-color:var(--tg-primary-color)}
+.sy-qual-steps li.is-on span{background:var(--tg-primary-color);color:#111827}
+.sy-step{display:none;border:0;padding:0;margin:0;min-width:0}
+.sy-step.is-active{display:block}
+.sy-step-title{font-size:21px;font-weight:700;color:#111827!important;margin:0 0 18px;padding:0;line-height:1.35}
+.sy-field-label{font-size:14px;font-weight:600;color:#4B5563!important;margin:18px 0 10px}
+.sy-choices{display:grid;gap:10px;margin-bottom:18px}
+.sy-choices-2{grid-template-columns:1fr 1fr}
+.sy-choices.is-bad{outline:2px solid #d93025;outline-offset:6px;border-radius:12px}
+.sy-choice{position:relative;display:block;margin:0}
+.sy-choice input{position:absolute;opacity:0;width:0;height:0}
+.sy-choice span{display:block;border:1.5px solid #E1E7EF;border-radius:12px;padding:14px 16px;font-size:15px;font-weight:600;color:#111827!important;cursor:pointer;transition:.15s}
+.sy-choice input:checked+span{border-color:var(--tg-primary-color);background:#FFF6EE}
+.sy-choice input:focus-visible+span{outline:3px solid #2563EB;outline-offset:2px}
+.sy-choice span:hover{border-color:#C9D3E0}
+.sy-qual .form-grp{margin-bottom:14px}
+.sy-qual .form-grp input{width:100%;border:1.5px solid #E1E7EF;border-radius:12px;padding:14px 16px;font-size:15px;background:#fff;color:#111827}
+.sy-qual .form-grp input.is-bad{border-color:#d93025}
+.sy-qual-nav{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:6px}
+.sy-qual-note{font-size:13px;color:#6B7280!important;margin:14px 0 0}
+.sy-qual-done h3{font-size:22px;margin:0 0 10px}
+.sy-qual-done p{margin:0 0 14px}
+.sy-turnstile{margin:4px 0 16px}
+.sy-hp{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}
+@media (max-width:575.98px){.sy-qual{padding:22px 18px}.sy-choices-2{grid-template-columns:1fr}.sy-qual-steps li{font-size:12px}}
+
+/* WhatsApp pre-chat modal */
+.sy-wa-modal{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:20px}
+.sy-wa-modal[hidden]{display:none}
+.sy-wa-backdrop{position:absolute;inset:0;background:rgba(15,23,42,.55)}
+.sy-wa-box{position:relative;width:100%;max-width:420px;background:#fff;border-radius:18px;padding:28px 26px 24px;box-shadow:0 24px 60px rgba(15,23,42,.25)}
+.sy-wa-box h3{font-size:21px;margin:0 0 8px;color:#111827!important}
+.sy-wa-box p{font-size:14px;margin:0 0 18px;color:#4B5563!important}
+.sy-wa-box .form-grp{margin-bottom:12px}
+.sy-wa-box input,.sy-wa-box select{width:100%;border:1.5px solid #E1E7EF;border-radius:12px;padding:13px 15px;font-size:15px;background:#fff;color:#111827}
+.sy-wa-x{position:absolute;top:10px;right:14px;border:0;background:none;font-size:28px;line-height:1;color:#9AA4B2;cursor:pointer}
+.sy-wa-x:hover{color:#111827}
