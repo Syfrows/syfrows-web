@@ -2440,9 +2440,9 @@ main p a:not(.btn),main li a:not(.btn),main td a:not(.btn){text-decoration:under
 .testimonial-content-three span{color:#4B5563!important}
 .company-content h2.pol-h{font-size:21px;margin-top:26px;line-height:1.3}
 .pricing-item.active .btn{background:#111827!important;color:#fff!important}
-@media (max-width:1199px),(hover:none),(prefers-reduced-motion:reduce){.slider-shape-wrap img,.breadcrumb-shape-wrap img,.success-shape-wrap img,.agency-shape-wrap img,.testimonial-shape-wrap img,.pulse::after{animation:none!important}.mouseCursor{display:none!important}}
+@media (prefers-reduced-motion:reduce){.slider-shape-wrap img,.breadcrumb-shape-wrap img,.success-shape-wrap img,.agency-shape-wrap img,.testimonial-shape-wrap img,.pulse::after{animation:none!important}}@media (max-width:1199px),(hover:none){.mouseCursor{display:none!important}}
 @media (max-width:1199px){.services-shape{display:none!important}}
-@media (max-width:1199px){.slider-shape-wrap img:nth-child(5){display:none!important}}
+
 @media (max-width:1199px){.slider-shape-wrap{display:none!important}}
 .services-icon-three img{width:55px;height:55px;object-fit:contain}
 .services-area-three .services-item-three{height:100%;margin-bottom:10px}
@@ -2545,3 +2545,51 @@ html{scroll-behavior:auto!important}
 
 /* Testimonial controls only earn their place when there is more to show */
 .testimonial-area-three .swiper-pagination:has(.swiper-pagination-bullet:only-child){display:none}
+
+/* What We Do: carousel row */
+.services-active-sy{overflow:hidden}
+.services-active-sy .swiper-wrapper{align-items:stretch}
+.services-active-sy .swiper-slide{height:auto;display:flex}
+.services-active-sy .services-item-three{width:100%;height:100%;display:flex;flex-direction:column}
+.services-active-sy .swiper-pagination{position:static;margin-top:26px}
+.services-active-sy .swiper-pagination-bullet{background:var(--tg-primary-color);opacity:.35}
+.services-active-sy .swiper-pagination-bullet-active{opacity:1}
+
+/* Testimonials: the theme hung the track 460px past the container so a third
+   card could peek. With two testimonials it just clipped the second one. */
+.testimonial-active-three{margin-right:0!important}
+
+/* Decorative shapes: show them on tablets and phones too. They were hidden
+   below 1200px during the speed work; the animations are cheap transforms. */
+@media (max-width:1199px){
+ .services-shape{display:block!important}
+ .slider-shape-wrap{display:block!important}
+ .slider-shape-wrap img:nth-child(5){display:block!important}
+}
+@media (max-width:1199px) and (prefers-reduced-motion:no-preference){
+ .slider-shape-wrap img,.breadcrumb-shape-wrap img,.success-shape-wrap img,
+ .agency-shape-wrap img,.testimonial-shape-wrap img{animation-duration:inherit!important}
+}
+@media (max-width:767.98px){.services-shape{opacity:.5}}
+
+/* Footer on phones and tablets: tighter, and the first column starts level
+   with the headings beside it instead of sitting lower. */
+@media (max-width:991.98px){
+ .footer-top{padding:56px 0 24px}
+ .footer-area .footer-top .row{row-gap:34px}
+ .footer-widget{margin-bottom:0}
+ .footer-widget .logo{margin-bottom:12px}
+ .footer-widget h3.fw-title{margin:0 0 14px;font-size:18px;line-height:22px}
+ .footer-widget .fw-link .list-wrap li{margin-bottom:8px}
+ .footer-area .footer-contact{margin-top:14px}
+ .footer-area .footer-social{margin-top:10px}
+ .copyright-wrap{padding:14px 0}
+}
+@media (max-width:575.98px){
+ .footer-top{padding:46px 0 18px}
+ .footer-area .footer-top .row{row-gap:28px}
+}
+
+/* Visually hidden text: lets a short visible label carry a descriptive
+   anchor for crawlers and screen readers. */
+.sy-sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
