@@ -73,13 +73,21 @@ if ($('.scroll-to-target').length) {
   $(".scroll-to-target").on('click', function () {
     var target = $(this).attr('data-target');
     var top = (target === 'html' || target === 'body') ? 0 : $(target).offset().top;
-    // Native smooth scrolling: the browser runs it off the main thread, so it
-    // stays fast on long pages. jQuery's animate() was taking a full second.
-    if ('scrollBehavior' in document.documentElement.style) {
-      window.scrollTo({ top: top, behavior: 'smooth' });
-    } else {
-      $('html, body').animate({ scrollTop: top }, 300);
+    // A fixed 320ms glide, however long the page is. Native smooth scrolling
+    // paces itself by distance, so from the footer of a long page it crawled.
+    var startY = window.pageYOffset, delta = top - startY, t0 = null;
+    if (Math.abs(delta) < 2) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      window.scrollTo(0, top);
+      return;
     }
+    function step(ts) {
+      if (t0 === null) t0 = ts;
+      var k = Math.min((ts - t0) / 320, 1);
+      window.scrollTo(0, startY + delta * (1 - Math.pow(1 - k, 3)));
+      if (k < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
   });
 }
 
@@ -557,9 +565,13 @@ if (jQuery(".project-active-three").length > 0) {
 /*=============================================
 	=          Testimonial Active           =
 =============================================*/
+// With only a couple of testimonials, a 3-up loop repeats the same card
+// twice on screen. Cap the view count at the number we actually have.
+var tCount = document.querySelectorAll('.testimonial-active-three .swiper-slide').length;
+var cap = function (n) { return Math.min(n, tCount); };
 var serviceSwiper = new Swiper('.testimonial-active-three', {
 	// Optional parameters
-	loop: true,
+	loop: tCount > 3,
 	slidesPerView: 1,
 	spaceBetween: 30,
 	autoplay: {
@@ -568,19 +580,19 @@ var serviceSwiper = new Swiper('.testimonial-active-three', {
 	},
 	breakpoints: {
 		'1500': {
-			slidesPerView: 3,
+			slidesPerView: cap(3),
 		},
 		'1200': {
-			slidesPerView: 3,
+			slidesPerView: cap(3),
 		},
 		'992': {
-			slidesPerView: 3,
+			slidesPerView: cap(3),
 		},
 		'768': {
-			slidesPerView: 2,
+			slidesPerView: cap(2),
 		},
 		'0': {
-			slidesPerView: 1,
+			slidesPerView: cap(1),
 		},
 	},
 	// Navigation arrows
