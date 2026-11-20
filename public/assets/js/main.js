@@ -565,6 +565,24 @@ if (jQuery(".project-active-three").length > 0) {
 /*=============================================
 	=          Testimonial Active           =
 =============================================*/
+// What We Do: one auto-advancing row of service cards.
+if (document.querySelector('.services-active-sy')) {
+  var sCount = document.querySelectorAll('.services-active-sy .swiper-slide').length;
+  new Swiper('.services-active-sy', {
+    loop: sCount > 3,
+    slidesPerView: 1,
+    spaceBetween: 24,
+    autoplay: { delay: 3200, disableOnInteraction: false, pauseOnMouseEnter: true },
+    pagination: { el: '.services-active-sy .swiper-pagination', clickable: true },
+    breakpoints: {
+      '992': { slidesPerView: Math.min(3, sCount) },
+      '768': { slidesPerView: Math.min(3, sCount) },
+      '576': { slidesPerView: Math.min(2, sCount) },
+      '0': { slidesPerView: 1 },
+    },
+  });
+}
+
 // With only a couple of testimonials, a 3-up loop repeats the same card
 // twice on screen. Cap the view count at the number we actually have.
 var tCount = document.querySelectorAll('.testimonial-active-three .swiper-slide').length;
