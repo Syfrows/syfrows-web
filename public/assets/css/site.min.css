@@ -110,3 +110,43 @@ main p a:not(.btn),main li a:not(.btn),main td a:not(.btn){text-decoration:under
 /* Contact form card: the theme pushed it down 180px and padded 100px below */
 @media (min-width:1200px){.inner-contact-form-wrap{margin-top:90px!important;padding:45px 40px 45px 60px!important}}
 @media (max-width:1199.98px){.inner-contact-form-wrap{margin-top:0!important;padding:40px 30px!important}}
+
+
+/* Our Success: all four tiles on one row at every width */
+.counter-item-wrap-two .list-wrap{flex-wrap:nowrap!important;gap:16px!important;align-items:stretch}
+.counter-item-wrap-two .list-wrap li{flex:1 1 0;min-width:0;display:flex}
+.counter-item-wrap-two .counter-item-two{width:100%}
+@media (max-width:767.98px){.counter-item-wrap-two .list-wrap{gap:10px!important}}
+
+/* Section padding: the theme shipped 120px top and bottom; trim at every width */
+.pt-120{padding-top:90px}.pb-120{padding-bottom:90px}
+.pt-110{padding-top:85px}.pb-110{padding-bottom:85px}
+.pt-100{padding-top:80px}.pb-100{padding-bottom:80px}
+.pt-90{padding-top:70px}.pb-90{padding-bottom:70px}
+@media (max-width:991.98px){
+ .pt-120{padding-top:64px}.pb-120{padding-bottom:64px}
+ .pt-110{padding-top:60px}.pb-110{padding-bottom:60px}
+ .pt-100{padding-top:56px}.pb-100{padding-bottom:56px}
+ .pt-90{padding-top:50px}.pb-90{padding-bottom:50px}
+}
+
+/* The browser was animating every scroll at its own pace, which made the
+   back-to-top arrow crawl on long pages. Let the script control it. */
+html{scroll-behavior:auto!important}
+
+/* Page banner: the header is ~100px tall, so 175px of top padding left a
+   dead strip under it on every inner page. */
+.breadcrumb-area.pt-175{padding-top:130px}
+.breadcrumb-area.breadcrumb-area-two{padding-bottom:20px}
+@media (max-width:991.98px){.breadcrumb-area.pt-175{padding-top:110px}}
+
+/* Footer: tidy two-by-two below desktop, rows aligned and evenly spaced */
+@media (min-width:576px) and (max-width:991.98px){
+ .footer-area .footer-top .row{row-gap:40px}
+ .footer-area .footer-widget{margin-bottom:0}
+}
+.footer-area .footer-widget .fw-title{white-space:nowrap}
+.footer-area .footer-contact .list-wrap li,.footer-area .footer-widget a[href^="tel:"]{white-space:nowrap}
+
+/* Testimonial controls only earn their place when there is more to show */
+.testimonial-area-three .swiper-pagination:has(.swiper-pagination-bullet:only-child){display:none}
