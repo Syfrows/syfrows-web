@@ -100,4 +100,33 @@
         </div>
 
     </footer>
+<div class="sy-wa-modal" id="sy-wa-modal" hidden>
+  <div class="sy-wa-backdrop" data-close></div>
+  <div class="sy-wa-box" role="dialog" aria-modal="true" aria-labelledby="sy-wa-title">
+    <button type="button" class="sy-wa-x" data-close aria-label="Close">&times;</button>
+    <h3 id="sy-wa-title">Start a WhatsApp chat</h3>
+    <p>Two quick details so we can reply properly instead of asking the basics.</p>
+    <form class="sy-wa-form">
+      <div class="sy-hp" aria-hidden="true">
+        <label for="wa_url_confirm">Leave this field empty</label>
+        <input type="text" id="wa_url_confirm" name="website_url_confirm" tabindex="-1" autocomplete="off">
+      </div>
+      <div class="form-grp"><input type="text" name="wa_name" placeholder="Your name" required></div>
+      <div class="form-grp">
+        <select name="wa_service" required aria-label="What do you need?">
+          <option value="">What do you need?</option>
+          <option>Website design &amp; development</option>
+          <option>Web or mobile app development</option>
+          <option>Performance marketing</option>
+          <option>SEO &amp; content marketing</option>
+          <option>Social media marketing</option>
+          <option>Branding &amp; creative</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <button type="submit" class="btn">Open WhatsApp <span></span></button>
+    </form>
+  </div>
+</div>
+
 <a href="https://wa.me/917588071530?text=Hi%20Syfrows%2C%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener" class="sy-chat" aria-label="Let's chat on WhatsApp"><i class="fab fa-whatsapp"></i><span>Let's Chat</span></a>
