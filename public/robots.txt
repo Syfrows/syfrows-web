@@ -1,3 +1,71 @@
+# Syfrows Digital Services Agency
+
+# Search and AI answer engines are welcome: being cited in an AI answer is
+# how a lot of B2B buyers will find us.
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# Commercial SEO scrapers: they cost bandwidth and feed competitor tooling.
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: rogerbot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: SeznamBot
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
+
+User-agent: serpstatbot
+Disallow: /
+
+User-agent: ZoominfoBot
+Disallow: /
+
 User-agent: *
 Allow: /
 Disallow: /Version/
