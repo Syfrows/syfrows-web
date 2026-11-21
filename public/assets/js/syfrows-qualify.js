@@ -94,6 +94,12 @@
       if (form.querySelector('[name=website_url_confirm]').value) return; // bot
       if (!valid(steps[at])) return;
 
+      /* Turnstile: the token is passed along when the widget has issued one, so
+         that a verifying endpoint can check it later. We deliberately do NOT
+         block the submission when it is missing. Nothing verifies the token
+         server-side yet, so blocking would buy no real security while risking
+         a lost enquiry whenever the widget is slow, blocked or offline. */
+
       var data = {};
       new FormData(form).forEach(function (v, k) { if (k !== 'website_url_confirm') data[k] = v; });
       data._subject = 'Qualified enquiry: ' + (data.goal || 'Syfrows');
