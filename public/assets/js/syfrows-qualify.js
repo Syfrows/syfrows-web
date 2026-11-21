@@ -7,9 +7,11 @@
    Turnstile switches itself on as soon as a site key is set on
    .sy-turnstile[data-sitekey]. */
 (function () {
-  // Posts via the Turnstile-verifying Worker (workers/syfrows-form-verify.js),
-  // which checks the token with siteverify before forwarding to FormSubmit.
-  var ENDPOINT = 'https://syfrows-form-verify.syfrows.workers.dev';
+  /* REVERTED to FormSubmit on 2026-11-22: the Turnstile widget was returning
+     "Verification failed" for real visitors, so routing through the verifying
+     Worker was refusing genuine enquiries. Restore the Worker endpoint only
+     once the widget is confirmed working. */
+  var ENDPOINT = 'https://formsubmit.co/ajax/syfrows@gmail.com';
 
   function track(name, params) {
     try {
