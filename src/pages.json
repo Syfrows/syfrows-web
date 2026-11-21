@@ -190,5 +190,13 @@
   "canon": "https://www.syfrows.com/ecommerce-performance-marketing-us-uk",
   "active": "services",
   "sub": "performance-marketing.html"
+ },
+ "book-a-call": {
+  "file": "book-a-call.html",
+  "title": "Book a Strategy Call | Syfrows",
+  "desc": "Pick a 30-minute slot with Syfrows. We look at where your growth is stuck and tell you what we would do about it. No pitch deck.",
+  "canon": "https://www.syfrows.com/book-a-call",
+  "active": "",
+  "sub": ""
  }
 }
