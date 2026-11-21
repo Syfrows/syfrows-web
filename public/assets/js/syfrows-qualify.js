@@ -153,7 +153,7 @@
           done.innerHTML = '<h3>Thanks, ' + (data.name || '').split(' ')[0] +
             '. Pick a time that suits you.</h3><p>We have your details. Choose a slot and we will come to the call having looked at ' +
             (data.company_website || 'your site') + '.</p>' +
-            '<p><a class="btn" href="' + booking + '" target="_blank" rel="noopener">Choose a time <span></span></a></p>';
+            '<p><a class="btn" href="' + booking + '">Choose a time <span></span></a></p>';
           track('book_call_click', { source: 'qualify_form' });
         } else {
           done.innerHTML = '<h3>Thanks, ' + (data.name || '').split(' ')[0] + '.</h3>' +
