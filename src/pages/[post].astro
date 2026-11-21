@@ -8,7 +8,7 @@ const { p } = Astro.props;
 const { Content } = p;
 const url = `https://www.syfrows.com/${p.slug}`;
 const date = String(p.date).slice(0, 10);
-const book = "https://meetings-na2.hubspot.com/syfrows-digital-services-agency";
+const book = "/book-a-call";
 const org = { "@type": "Organization", name: "Syfrows Digital Services Agency", url: "https://www.syfrows.com/", logo: { "@type": "ImageObject", url: "https://www.syfrows.com/syfrows-logo-512.png" } };
 const ld = [
   { "@context": "https://schema.org", "@type": "BlogPosting", headline: p.title, description: p.description, datePublished: date, dateModified: date, author: org, publisher: org, mainEntityOfPage: url, image: p.image ? "https://www.syfrows.com" + p.image : "https://www.syfrows.com/syfrows-og.jpg" },
@@ -36,7 +36,7 @@ if (faqs.length) ld.push({ "@context": "https://schema.org", "@type": "FAQPage",
         <Content />
         {faqs.length > 0 && <h2>Frequently asked questions</h2>}
         {faqs.map((f) => (<><h3>{f.question}</h3><p>{f.answer}</p></>))}
-        <div class="cta-box"><h3 style="margin-top:0">Want an expert opinion on your project?</h3><p>Get a free website and marketing audit from Syfrows within 48 hours, or book a free 30-minute strategy call.</p><a href="free-audit.html" class="btn">Get a Free Audit <span></span></a> &nbsp; <a href={book} target="_blank" rel="noopener" class="btn">Book a Free Call <span></span></a></div>
+        <div class="cta-box"><h3 style="margin-top:0">Want an expert opinion on your project?</h3><p>Get a free website and marketing audit from Syfrows within 48 hours, or book a free 30-minute strategy call.</p><a href="free-audit.html" class="btn">Get a Free Audit <span></span></a> &nbsp; <a href={book} class="btn">Book a Free Call <span></span></a></div>
         <p class="mt-40"><a href="blog.html">&larr; All articles</a></p>
       </div>
     </div></div></div>
