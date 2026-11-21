@@ -1,12 +1,15 @@
 /* Syfrows: three-step lead qualification.
    Step 1 goal, step 2 company and revenue, step 3 budget and contact.
    A budget of $3,000 or more lands on the booking screen; anything lower
-   gets a polite audit-by-email reply instead. Submissions go to the same
-   endpoint as the other site forms, and a honeypot drops bot fills.
-   Cloudflare Turnstile switches itself on as soon as a site key is set on
+   gets a polite audit-by-email reply instead. Submissions go through the
+   syfrows-form-verify Worker, which checks the Cloudflare Turnstile token
+   before forwarding to FormSubmit. A honeypot drops bot fills.
+   Turnstile switches itself on as soon as a site key is set on
    .sy-turnstile[data-sitekey]. */
 (function () {
-  var ENDPOINT = 'https://formsubmit.co/ajax/syfrows@gmail.com';
+  // Posts via the Turnstile-verifying Worker (workers/syfrows-form-verify.js),
+  // which checks the token with siteverify before forwarding to FormSubmit.
+  var ENDPOINT = 'https://syfrows-form-verify.syfrows.workers.dev';
 
   function track(name, params) {
     try {
@@ -94,11 +97,9 @@
       if (form.querySelector('[name=website_url_confirm]').value) return; // bot
       if (!valid(steps[at])) return;
 
-      /* Turnstile: the token is passed along when the widget has issued one, so
-         that a verifying endpoint can check it later. We deliberately do NOT
-         block the submission when it is missing. Nothing verifies the token
-         server-side yet, so blocking would buy no real security while risking
-         a lost enquiry whenever the widget is slow, blocked or offline. */
+      /* The Turnstile token rides along in the payload. The Worker is what
+         accepts or refuses it; if it refuses, the message it returns is shown
+         below and the visitor can retry. Nothing is decided here. */
 
       var data = {};
       new FormData(form).forEach(function (v, k) { if (k !== 'website_url_confirm') data[k] = v; });
@@ -113,7 +114,28 @@
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(data)
-      }).catch(function () {}).then(function () {
+      }).then(function (res) {
+        return res.json().catch(function () { return {}; }).then(function (body) {
+          return { ok: res.ok, body: body };
+        });
+      }).catch(function () {
+        // Could not reach the endpoint at all. Telling the visitor beats a
+        // false "thanks" that silently loses the enquiry.
+        return { ok: false, body: {} };
+      }).then(function (r) {
+        if (!r.ok) {
+          btn.disabled = false; btn.style.opacity = '';
+          var warn = form.querySelector('.sy-send-warn');
+          if (!warn) {
+            warn = document.createElement('p');
+            warn.className = 'sy-qual-note sy-send-warn';
+            warn.setAttribute('role', 'alert');
+            warn.style.color = '#d93025';
+            btn.parentNode.parentNode.insertBefore(warn, btn.parentNode.nextSibling);
+          }
+          warn.textContent = r.body.message || 'That did not send. Please try again, or email info@syfrows.com and we will pick it up from there.';
+          return;
+        }
         track('generate_lead', { budget: data.budget || '', goal: data.goal || '' });
         steps.forEach(function (s) { s.classList.remove('is-active'); });
         root.querySelector('.sy-qual-steps').style.display = 'none';
