@@ -1,142 +1,91 @@
 /* syfrows-form-verify
  *
- * Sits between the site's forms and FormSubmit. It verifies the Cloudflare
+ * Sits between the site's forms and FormSubmit, verifying the Cloudflare
  * Turnstile token with siteverify before passing a submission on, so the
  * widget on /free-audit stops being decorative.
  *
- * Deliberate behaviour around failure:
- *   - If TURNSTILE_SECRET is not configured, the Worker forwards without
- *     verifying. That way deploying this Worker can never silently start
- *     dropping enquiries before the secret is in place.
- *   - If the secret IS configured and the token is missing or rejected, the
- *     submission is refused with a clear message the form shows the visitor,
- *     so they can complete the check and retry rather than lose their enquiry.
+ * Failure behaviour is deliberate:
+ *   - With no TURNSTILE_SECRET set, it forwards without verifying, so
+ *     deploying it can never silently start dropping enquiries.
+ *   - If siteverify itself is unreachable, it forwards rather than lose a
+ *     real enquiry.
+ *   - Only a secret that IS set plus a missing or rejected token refuses the
+ *     submission, with a message the form shows so the visitor can retry.
  *
- * Environment:
- *   TURNSTILE_SECRET  (secret)   Turnstile secret key for the site key in use
- *   FORM_ENDPOINT     (optional) override the FormSubmit URL
+ * Env: TURNSTILE_SECRET (secret), FORM_ENDPOINT (optional override)
  */
 
-const DEFAULT_ENDPOINT = 'https://formsubmit.co/ajax/syfrows@gmail.com';
-const ALLOWED_ORIGINS = ['https://www.syfrows.com', 'https://syfrows.com'];
-const MAX_BODY = 64 * 1024;
+const ENDPOINT = 'https://formsubmit.co/ajax/syfrows@gmail.com';
+const ORIGINS = ['https://www.syfrows.com', 'https://syfrows.com'];
 
-function cors(origin) {
-  const allow = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
+function cors(o) {
   return {
-    'Access-Control-Allow-Origin': allow,
+    'Access-Control-Allow-Origin': ORIGINS.includes(o) ? o : ORIGINS[0],
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
-    'Access-Control-Max-Age': '86400',
     Vary: 'Origin',
   };
 }
 
-function json(body, status, origin) {
+function reply(body, status, o) {
   return new Response(JSON.stringify(body), {
     status,
-    headers: { 'Content-Type': 'application/json', ...cors(origin) },
+    headers: { 'Content-Type': 'application/json', ...cors(o) },
   });
 }
 
 export default {
   async fetch(request, env) {
-    const origin = request.headers.get('Origin') || '';
+    const o = request.headers.get('Origin') || '';
+    if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: cors(o) });
+    if (request.method !== 'POST') return reply({ success: false }, 405, o);
+    if (o && !ORIGINS.includes(o)) return reply({ success: false }, 403, o);
 
-    if (request.method === 'OPTIONS') {
-      return new Response(null, { status: 204, headers: cors(origin) });
-    }
-    if (request.method !== 'POST') {
-      return json({ success: false, message: 'Method not allowed.' }, 405, origin);
-    }
-    if (origin && !ALLOWED_ORIGINS.includes(origin)) {
-      return json({ success: false, message: 'Origin not allowed.' }, 403, origin);
-    }
-
-    const raw = await request.text();
-    if (raw.length > MAX_BODY) {
-      return json({ success: false, message: 'Submission too large.' }, 413, origin);
-    }
-
-    let data;
+    let d;
     try {
-      data = JSON.parse(raw);
+      d = await request.json();
     } catch (e) {
-      return json({ success: false, message: 'Could not read the submission.' }, 400, origin);
+      return reply({ success: false, message: 'Could not read the submission.' }, 400, o);
     }
-    if (!data || typeof data !== 'object' || Array.isArray(data)) {
-      return json({ success: false, message: 'Could not read the submission.' }, 400, origin);
-    }
+    if (!d || typeof d !== 'object') return reply({ success: false, message: 'Could not read the submission.' }, 400, o);
 
-    // Honeypot: accept quietly so the bot sees a success and does not retry.
-    if (data.website_url_confirm) {
-      return json({ success: true }, 200, origin);
-    }
+    // Honeypot: answer success so the bot does not retry.
+    if (d.website_url_confirm) return reply({ success: true }, 200, o);
 
-    const token = data['cf-turnstile-response'];
-    delete data['cf-turnstile-response'];
+    const token = d['cf-turnstile-response'];
+    delete d['cf-turnstile-response'];
 
     const secret = env.TURNSTILE_SECRET;
     if (secret) {
-      if (!token) {
-        return json(
-          {
-            success: false,
-            message:
-              'The security check did not complete. Please wait a moment for it to finish, then send again.',
-          },
-          400,
-          origin
-        );
-      }
-
-      const form = new FormData();
-      form.append('secret', secret);
-      form.append('response', token);
+      const msg = 'The security check did not complete. Please reload the page and try again.';
+      if (!token) return reply({ success: false, message: msg }, 400, o);
+      const fd = new FormData();
+      fd.append('secret', secret);
+      fd.append('response', token);
       const ip = request.headers.get('CF-Connecting-IP');
-      if (ip) form.append('remoteip', ip);
-
-      let verdict;
+      if (ip) fd.append('remoteip', ip);
+      let v = { success: true };
       try {
-        const vr = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-          method: 'POST',
-          body: form,
-        });
-        verdict = await vr.json();
+        v = await (await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', { method: 'POST', body: fd })).json();
       } catch (e) {
-        // Cloudflare unreachable: forward rather than lose a real enquiry.
-        verdict = { success: true, 'error-codes': ['siteverify-unreachable'] };
+        v = { success: true };
       }
-
-      if (!verdict.success) {
-        return json(
-          {
-            success: false,
-            message:
-              'The security check could not be verified. Please reload the page and try again.',
-          },
-          400,
-          origin
-        );
-      }
+      if (!v.success) return reply({ success: false, message: msg }, 400, o);
     }
 
-    const endpoint = env.FORM_ENDPOINT || DEFAULT_ENDPOINT;
-    let upstream;
+    let up;
     try {
-      upstream = await fetch(endpoint, {
+      up = await fetch(env.FORM_ENDPOINT || ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify(d),
       });
     } catch (e) {
-      return json({ success: false, message: 'Could not deliver the message. Please email info@syfrows.com.' }, 502, origin);
+      return reply({ success: false, message: 'Could not deliver. Please email info@syfrows.com.' }, 502, o);
     }
-
-    const text = await upstream.text();
-    return new Response(text, {
-      status: upstream.status,
-      headers: { 'Content-Type': 'application/json', ...cors(origin) },
+    return new Response(await up.text(), {
+      status: up.status,
+      headers: { 'Content-Type': 'application/json', ...cors(o) },
     });
   },
 };
