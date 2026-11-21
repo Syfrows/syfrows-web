@@ -118,7 +118,14 @@
         body: JSON.stringify(data)
       }).then(function (res) {
         return res.json().catch(function () { return {}; }).then(function (body) {
-          return { ok: res.ok, body: body };
+          /* FormSubmit answers HTTP 200 even when it refuses a submission and
+             puts the real verdict in the body as success:"false". Trusting the
+             status alone showed the visitor "Thanks" while nothing was sent. */
+          var ok = res.ok;
+          if (body && typeof body.success !== 'undefined') {
+            ok = ok && String(body.success) === 'true';
+          }
+          return { ok: ok, body: body };
         });
       }).catch(function () {
         // Could not reach the endpoint at all. Telling the visitor beats a
