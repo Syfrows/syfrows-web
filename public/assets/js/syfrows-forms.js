@@ -1,7 +1,10 @@
-/* Syfrows: send every website form to email (Web3Forms) and track it in GA4 / GTM.
-   HubSpot's tracking code (loaded separately) also captures these submissions as CRM contacts. */
+/* Syfrows: send every website form to email (FormSubmit) and track it in GA4 / GTM.
+   HubSpot's tracking code (loaded separately) also captures these submissions as CRM contacts.
+   Every form gets a honeypot field injected at init; anything that fills it is a bot,
+   and its submission is dropped while still showing the normal success message. */
 (function () {
   var ENDPOINT = "https://formsubmit.co/ajax/syfrows@gmail.com";
+  var HP_ID = 0;
 
   function fieldName(el) {
     if (el.name) return el.name;
@@ -24,8 +27,14 @@
     box.textContent = text;
   }
 
+  /* Forms that own their own submit handling elsewhere. Without this, the
+     catch-all below would bind a second handler to them, so one enquiry would
+     send two emails and fire generate_lead twice. */
+  var OWNED_ELSEWHERE = ".sy-qual-form, .sy-wa-form";
+
   function init(form) {
     if (form.dataset.sfReady) return;
+    if (form.matches(OWNED_ELSEWHERE)) return;
     form.dataset.sfReady = "1";
     var isNewsletter = !!form.closest(".newsletter-form, .footer-newsletter") || form.querySelectorAll("input,textarea").length === 1;
     form.querySelectorAll("input,textarea,select").forEach(function (el) {
@@ -36,11 +45,31 @@
     form.setAttribute("action", ENDPOINT);
     form.setAttribute("method", "POST");
 
+    // Honeypot. Off-screen, hidden from screen readers and skipped by tabbing,
+    // so only a script that fills every field will touch it.
+    if (!form.querySelector("[name=website_url_confirm]")) {
+      var hp = document.createElement("div");
+      hp.className = "sy-hp";
+      hp.setAttribute("aria-hidden", "true");
+      hp.innerHTML = '<label for="sf_hp_' + HP_ID + '">Leave this field empty</label>' +
+        '<input type="text" id="sf_hp_' + HP_ID + '" name="website_url_confirm" tabindex="-1" autocomplete="off">';
+      HP_ID++;
+      form.appendChild(hp);
+    }
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var btn = form.querySelector('button[type="submit"],button:not([type])');
+      // Bot: show the usual confirmation so it does not retry, and send nothing.
+      var trap = form.querySelector("[name=website_url_confirm]");
+      if (trap && trap.value) {
+        message(form, isNewsletter ? "Thanks! You're subscribed." : "Thanks! We'll get back to you within 24 hours.", true);
+        form.reset();
+        return;
+      }
+
       var data = {};
-      new FormData(form).forEach(function (v, k) { data[k] = v; });
+      new FormData(form).forEach(function (v, k) { if (k !== "website_url_confirm") data[k] = v; });
       delete data.access_key;
       data._subject = isNewsletter ? "New newsletter subscriber - syfrows.com" : "New enquiry from syfrows.com";
       data._template = "table";
