@@ -174,5 +174,21 @@
   "canon": "https://www.syfrows.com/digital-marketing-agency-pune",
   "active": "services",
   "sub": ""
+ },
+ "b2b-saas-development-agency": {
+  "file": "b2b-saas-development-agency.html",
+  "title": "B2B SaaS Development Agency for US & UK Companies | Syfrows",
+  "desc": "Offshore product team for US and UK SaaS companies. Fixed-price milestones, your repository, overlapping working hours and a weekly written update.",
+  "canon": "https://www.syfrows.com/b2b-saas-development-agency",
+  "active": "services",
+  "sub": "website-development.html"
+ },
+ "ecommerce-performance-marketing-us-uk": {
+  "file": "ecommerce-performance-marketing-us-uk.html",
+  "title": "Ecommerce Performance Marketing Agency, US & UK | Syfrows",
+  "desc": "Google and Meta ads for US and UK ecommerce brands, run against contribution margin rather than platform ROAS. Your ad accounts, billed in USD or GBP.",
+  "canon": "https://www.syfrows.com/ecommerce-performance-marketing-us-uk",
+  "active": "services",
+  "sub": "performance-marketing.html"
  }
 }
