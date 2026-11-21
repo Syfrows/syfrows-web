@@ -2708,3 +2708,17 @@ html{scroll-behavior:auto!important}
 .sy-book-fallback{max-width:560px;margin:0 auto;text-align:center;background:#F8FAFC;border:1px solid #E6EBF2;border-radius:16px;padding:28px 24px}
 .sy-book-fallback p{font-size:15px;line-height:1.7;margin:0 0 14px}
 .sy-book-fallback .sy-book-alt{font-size:14px;color:#6B7280!important;margin:16px 0 0}
+/* Our Success counters: the theme pins each card to a fixed 250px, which
+   overflows its flex slot on narrower screens and lays the cards over each
+   other. Let the card fill its slot and scale the type to fit. */
+.counter-item-wrap-two .list-wrap li .counter-item-two{width:100%!important;min-width:0;min-height:0;padding:26px 14px;aspect-ratio:1/1}
+.counter-item-wrap-two .counter-item-two .content{max-width:100%;min-width:0}
+.counter-item-wrap-two .counter-item-two .content .count{justify-content:center;white-space:nowrap;font-size:clamp(24px,3.4vw,50px);margin-bottom:10px}
+.counter-item-wrap-two .counter-item-two .content>p{font-size:clamp(12px,1.35vw,18px);line-height:1.35;overflow-wrap:break-word;hyphens:auto}
+@media (max-width:767.98px){
+ .counter-item-wrap-two .list-wrap{flex-wrap:wrap!important;gap:14px!important}
+ .counter-item-wrap-two .list-wrap li{flex:0 0 calc(50% - 7px);max-width:calc(50% - 7px)}
+ .counter-item-wrap-two .list-wrap li .counter-item-two{aspect-ratio:auto;min-height:150px}
+ .counter-item-wrap-two .counter-item-two .content .count{font-size:34px}
+ .counter-item-wrap-two .counter-item-two .content>p{font-size:14px}
+}
