@@ -303,13 +303,13 @@ html{scroll-behavior:auto!important}
 /* On-site booking page */
 .sy-book-intro{max-width:720px;margin:0 auto 28px;text-align:center}
 .sy-book-intro p{font-size:17px;line-height:1.7;margin:0}
-.sy-book-embed{min-height:680px}
-.sy-book-embed .meetings-iframe-container{min-height:680px}
+.sy-book-embed{position:relative}
+.sy-book-frame{display:block;width:100%;height:720px;border:0;border-radius:14px;background:#fff}
 .sy-book-done{max-width:640px;margin:0 auto;background:#fff;border:1px solid #E6EBF2;border-radius:18px;padding:34px 32px;text-align:center;box-shadow:0 14px 40px rgba(15,23,42,.06)}
 .sy-book-done h2{font-size:26px;margin:0 0 14px}
 .sy-book-done p{font-size:15px;line-height:1.7;margin:0 0 12px}
 .sy-book-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:22px!important}
-@media (max-width:767.98px){.sy-book-done{padding:26px 20px}.sy-book-done h2{font-size:22px}.sy-book-embed,.sy-book-embed .meetings-iframe-container{min-height:760px}}
-.sy-book-fallback{max-width:560px;margin:40px auto 0;text-align:center;background:#F8FAFC;border:1px solid #E6EBF2;border-radius:16px;padding:28px 24px}
+@media (max-width:767.98px){.sy-book-done{padding:26px 20px}.sy-book-done h2{font-size:22px}.sy-book-frame{height:820px}}
+.sy-book-fallback{max-width:560px;margin:0 auto;text-align:center;background:#F8FAFC;border:1px solid #E6EBF2;border-radius:16px;padding:28px 24px}
 .sy-book-fallback p{font-size:15px;line-height:1.7;margin:0 0 14px}
 .sy-book-fallback .sy-book-alt{font-size:14px;color:#6B7280!important;margin:16px 0 0}
