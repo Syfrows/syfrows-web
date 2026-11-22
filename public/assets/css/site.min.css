@@ -440,3 +440,16 @@ html{scroll-behavior:auto!important}
 .sy-global-active .swiper-slide .sy-global-card{width:100%}
 .sy-global-active .swiper-pagination{position:static;margin-top:28px}
 @media (max-width:575.98px){.sy-global-active{overflow:visible}}
+
+/* ---- Footer newsletter --------------------------------------------------- */
+.footer-newsletter{margin-top:26px}
+.footer-newsletter .fw-sub{font-size:16px;font-weight:600;color:#fff;margin:0 0 8px}
+.footer-newsletter p{font-size:13.5px;line-height:1.55;color:rgba(255,255,255,.66);margin:0 0 14px}
+.footer-newsletter .newsletter-form{display:flex;flex-wrap:wrap;gap:10px}
+.footer-newsletter input[type=email]{flex:1 1 170px;min-width:0;height:46px;padding:0 14px;border-radius:10px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.07);color:#fff;font-size:14px}
+.footer-newsletter input[type=email]::placeholder{color:rgba(255,255,255,.45)}
+.footer-newsletter input[type=email]:focus{outline:none;border-color:#F89E52;background:rgba(255,255,255,.11)}
+.footer-newsletter .btn{flex:0 0 auto;height:46px;padding:0 20px;display:inline-flex;align-items:center;font-size:14px;margin-bottom:0}
+.footer-newsletter .sf-msg{font-size:13px;width:100%}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media (max-width:1199px){.footer-newsletter .newsletter-form{flex-wrap:nowrap}}
