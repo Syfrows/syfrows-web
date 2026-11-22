@@ -36,7 +36,30 @@
     finished = true;
     embed.hidden = true;
     done.hidden = false;
+    var ret = document.getElementById('sy-book-return');
+    if (ret) ret.hidden = true;
     done.scrollIntoView({ block: 'center', behavior: 'smooth' });
+
+    /* Send them back to the site on their own. The countdown is visible and
+       has a "go now" link beside it, so nobody is moved without warning. */
+    var secs = document.getElementById('sy-book-secs');
+    var left = 8;
+    var tick = setInterval(function () {
+      left -= 1;
+      if (secs) secs.textContent = String(left);
+      if (left <= 0) {
+        clearInterval(tick);
+        window.location.href = 'index.html';
+      }
+    }, 1000);
+    /* Any click or key press means they are reading, so stop the clock. */
+    ['click', 'keydown', 'touchstart'].forEach(function (ev) {
+      done.addEventListener(ev, function () {
+        clearInterval(tick);
+        var c = done.querySelector('.sy-book-count');
+        if (c) c.hidden = true;
+      }, { once: true });
+    });
     try {
       if (typeof gtag === 'function') {
         gtag('event', 'book_call_completed', { send_to: 'G-J68BRDSGJ0' });
@@ -55,6 +78,7 @@
     if (!d) return;
 
     // HubSpot asks the parent to resize the frame as the booking flow moves on.
+    if (d && typeof d === 'object' && d.meetingBookSucceeded === true) return booked();
     if (typeof d === 'object') {
       var h = d.meetingsFrameHeight || d.height ||
               (d.meetingBookSucceeded ? null : (d.payload && d.payload.height));
