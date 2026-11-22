@@ -39,8 +39,16 @@
     var isNewsletter = !!form.closest(".newsletter-form, .footer-newsletter") || form.querySelectorAll("input,textarea").length === 1;
     form.querySelectorAll("input,textarea,select").forEach(function (el) {
       if (el.type === "hidden" || el.type === "submit") return;
-      fieldName(el);
+      var n = fieldName(el);
+      /* An email address on its own is not a lead: it arrives with no name
+         and nothing to reply about. Require the fields that make an enquiry
+         actionable, and leave phone optional so nobody is forced to give a
+         number. The honeypot is exempt, since filling it marks a bot. */
       if (el.type === "email") el.required = true;
+      if (!isNewsletter && n !== "website_url_confirm" &&
+          (n === "name" || n === "comment" || n === "message")) {
+        el.required = true;
+      }
     });
     form.setAttribute("action", ENDPOINT);
     form.setAttribute("method", "POST");
