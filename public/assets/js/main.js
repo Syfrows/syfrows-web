@@ -568,6 +568,21 @@ if (jQuery(".project-active-three").length > 0) {
 // What We Do: one auto-advancing row of service cards.
 // Client Results: same side-scrolling carousel as What We Do, so the cards
 // stay one row and readable instead of stacking on narrow screens.
+if (document.querySelector('.sy-global-active')) {
+  /* Working Together: same swipe affordance as the other card rows. Three
+     slides only, so loop stays off on desktop where all three already fit. */
+  var gCount = document.querySelectorAll('.sy-global-active .swiper-slide').length;
+  new Swiper('.sy-global-active', {
+    loop: false, slidesPerView: 1, spaceBetween: 24,
+    autoHeight: false, grabCursor: true,
+    pagination: { el: '.sy-global-active .swiper-pagination', clickable: true },
+    breakpoints: { '992': { slidesPerView: Math.min(3, gCount) },
+                   '768': { slidesPerView: Math.min(2, gCount) },
+                   '576': { slidesPerView: Math.min(2, gCount) },
+                   '0':   { slidesPerView: 1.08 } },
+  });
+}
+
 if (document.querySelector('.cases-active-sy')) {
   var cCount = document.querySelectorAll('.cases-active-sy .swiper-slide').length;
   new Swiper('.cases-active-sy', {
