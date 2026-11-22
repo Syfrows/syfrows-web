@@ -18,14 +18,28 @@
                                 <noscript><p>Please <a href="https://meetings-na2.hubspot.com/syfrows-digital-services-agency" target="_blank" rel="noopener">open the booking page</a> to choose a time.</p></noscript>
                             </div>
 
+                            <!-- HubSpot's free tier gives us no post-booking redirect, and the
+                                 success message their scheduler posts to the parent window does
+                                 not arrive reliably without their own embed script. So the way
+                                 back is a control that is always here, not one that depends on
+                                 detecting the booking. -->
+                            <div id="sy-book-return" class="sy-book-return">
+                                <p>Finished booking? HubSpot's confirmation stays on this screen, so head back whenever you are ready.</p>
+                                <p class="sy-book-actions">
+                                    <a href="index.html" class="btn">Back to Syfrows <span></span></a>
+                                    <a href="free-audit.html" class="sy-btn-ghost">Send your site first</a>
+                                </p>
+                            </div>
+
                             <div id="sy-book-done" class="sy-book-done" hidden role="status">
                                 <h2>You are booked in.</h2>
                                 <p>The invitation is on its way to your inbox, with the call details and a calendar entry.</p>
                                 <p>Before we speak, it helps to know what you are working with. Send us your site and we will have looked at it beforehand.</p>
                                 <p class="sy-book-actions">
                                     <a href="free-audit.html" class="btn">Send your site first <span></span></a>
-                                    <a href="case-studies.html" class="sy-btn-ghost">See recent work</a>
+                                    <a href="index.html" class="sy-btn-ghost">Back to Syfrows</a>
                                 </p>
+                                <p class="sy-book-count">Taking you back to the homepage in <span id="sy-book-secs">8</span> seconds. <a href="index.html">Go now</a></p>
                             </div>
                         </div>
                     </div>
