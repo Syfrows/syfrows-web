@@ -566,6 +566,27 @@ if (jQuery(".project-active-three").length > 0) {
 	=          Testimonial Active           =
 =============================================*/
 // What We Do: one auto-advancing row of service cards.
+// Client Results: same side-scrolling carousel as What We Do, so the cards
+// stay one row and readable instead of stacking on narrow screens.
+if (document.querySelector('.cases-active-sy')) {
+  var cCount = document.querySelectorAll('.cases-active-sy .swiper-slide').length;
+  new Swiper('.cases-active-sy', {
+    loop: cCount > 3,
+    slidesPerView: 1,
+    spaceBetween: 24,
+    autoHeight: false,
+    grabCursor: true,
+    autoplay: { delay: 4200, disableOnInteraction: false, pauseOnMouseEnter: true },
+    pagination: { el: '.cases-active-sy .swiper-pagination', clickable: true },
+    breakpoints: {
+      '992': { slidesPerView: Math.min(3, cCount) },
+      '768': { slidesPerView: Math.min(2, cCount) },
+      '576': { slidesPerView: Math.min(2, cCount) },
+      '0': { slidesPerView: 1 },
+    },
+  });
+}
+
 if (document.querySelector('.services-active-sy')) {
   var sCount = document.querySelectorAll('.services-active-sy .swiper-slide').length;
   new Swiper('.services-active-sy', {

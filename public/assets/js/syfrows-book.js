@@ -61,11 +61,15 @@
       if (h && !isNaN(h) && h > 200) frame.style.height = Math.ceil(h) + 'px';
     }
 
-    if (d === 'meetingBookSucceeded') return booked();
-    if (typeof d === 'object') {
-      if (d.meetingBookSucceeded === true) return booked();
-      if (d.meetingsPayload && d.meetingsPayload.bookingResponse) return booked();
-      if (d.eventName === 'meetingBookSucceeded') return booked();
-    }
+    /* HubSpot has used several shapes for the booked signal over the years and
+       does not document which one a given account gets. Observed traffic from
+       this widget: "readyForConsentListener", {type:"iframe-title"} and
+       {height:n}. Rather than guess the success shape, match on the name in
+       any form - it appears nowhere else. */
+    try {
+      var probe = typeof d === 'string' ? d : JSON.stringify(d);
+      if (/meetingBookSucceeded|bookingSucceeded|bookingResponse|MEETING_BOOKED/i.test(probe)) return booked();
+    } catch (err) {}
+    if (typeof d === 'object' && d.meetingsPayload && d.meetingsPayload.bookingResponse) return booked();
   });
 })();
