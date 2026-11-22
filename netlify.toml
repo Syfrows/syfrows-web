@@ -25,3 +25,17 @@
   status = 301
   force = true
 
+
+# Security headers. No MIME sniffing, referrers trimmed to the origin when
+# leaving the site, and nobody else may frame our pages (this does not affect
+# the HubSpot scheduler we embed, which is the other direction). No CSP here
+# on purpose: the theme uses inline scripts and styles and loads GTM, HubSpot
+# and Cloudflare, so a policy strict enough to be worth having would need to
+# be built and tested against each of those rather than guessed at.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=(), interest-cohort=()"
