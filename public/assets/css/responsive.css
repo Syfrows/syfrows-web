@@ -2722,3 +2722,7 @@ html{scroll-behavior:auto!important}
  .counter-item-wrap-two .counter-item-two .content .count{font-size:34px}
  .counter-item-wrap-two .counter-item-two .content>p{font-size:14px}
 }
+.cases-active-sy{overflow:hidden;padding-bottom:6px}
+.cases-active-sy .swiper-slide{height:auto;display:flex}
+.cases-active-sy .swiper-slide .sy-case{width:100%}
+.cases-active-sy .swiper-pagination{position:static;margin-top:30px}
