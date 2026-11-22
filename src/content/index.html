@@ -5,134 +5,58 @@
                         <div class="row align-items-center">
                             <div class="col-lg-6 order-0 order-lg-2">
                                 <div class="slider-img text-end">
-                                    <svg class="sy-dash" viewBox="0 0 620 470" role="img" aria-label="Illustration of a marketing dashboard with a rising performance trend" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="syArea" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#F89E52" stop-opacity=".38"/>
-      <stop offset="100%" stop-color="#F89E52" stop-opacity="0"/>
-    </linearGradient>
-    <linearGradient id="syLine" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#F89E52"/>
-      <stop offset="100%" stop-color="#EF7C1A"/>
-    </linearGradient>
-    <filter id="syCard" x="-12%" y="-12%" width="124%" height="130%">
-      <feDropShadow dx="0" dy="14" stdDeviation="20" flood-color="#0f172a" flood-opacity=".10"/>
-    </filter>
-    <filter id="syToastShadow" x="-30%" y="-30%" width="160%" height="170%">
-      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0f172a" flood-opacity=".20"/>
-    </filter>
-    <clipPath id="syPlot"><rect x="52" y="186" width="516" height="180" rx="12"/></clipPath>
-  </defs>
+                                    <div class="sy-h3d" id="sy-h3d" aria-label="Interactive illustration of a performance dashboard. Drag to rotate, choose a metric to redraw the trend.">
+  <div class="sy-h3d-deck" id="sy-h3d-deck">
+    <div class="sy-h3d-glow" aria-hidden="true"></div>
+    <div class="sy-h3d-grid" aria-hidden="true"></div>
 
-  <style>
-    .sy-dash text{font-family:Poppins,system-ui,-apple-system,"Segoe UI",sans-serif}
-    .sy-card{animation:syFloat 7s ease-in-out infinite}
-    .sy-kpi{transform-box:fill-box;transform-origin:center;transition:transform .25s ease}
-    .sy-kpi:hover{transform:translateY(-4px)}
-    .sy-bar{transform-box:fill-box;transform-origin:bottom;animation:syRise 1s cubic-bezier(.22,1,.36,1) both}
-    .sy-line{stroke-dasharray:760;stroke-dashoffset:760;animation:syDraw 2.1s cubic-bezier(.4,0,.2,1) .25s forwards}
-    .sy-area{opacity:0;animation:syFade 1s ease 1.5s forwards}
-    .sy-tip{opacity:0;animation:syFade .5s ease 2.1s forwards}
-    .sy-ping{transform-box:fill-box;transform-origin:center;animation:syPing 2.4s ease-out 2.3s infinite}
-    .sy-live{animation:syBlink 2s ease-in-out infinite}
-    .sy-toast{transform-box:fill-box;transform-origin:center;animation:syToast 9s ease-in-out 2.8s infinite}
-    @keyframes syDraw{to{stroke-dashoffset:0}}
-    @keyframes syFade{to{opacity:1}}
-    @keyframes syRise{from{transform:scaleY(.05)}to{transform:scaleY(1)}}
-    @keyframes syFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-    @keyframes syPing{0%{transform:scale(1);opacity:.55}70%,100%{transform:scale(2.6);opacity:0}}
-    @keyframes syBlink{0%,100%{opacity:1}50%{opacity:.35}}
-    @keyframes syToast{0%,6%{opacity:0;transform:translateY(16px)}12%,44%{opacity:1;transform:translateY(0)}52%,100%{opacity:0;transform:translateY(16px)}}
-    @media (prefers-reduced-motion:reduce){
-      .sy-card,.sy-bar,.sy-line,.sy-area,.sy-tip,.sy-ping,.sy-live,.sy-toast{animation:none!important}
-      .sy-line{stroke-dashoffset:0}
-      .sy-area,.sy-tip{opacity:1}
-      .sy-toast{opacity:1}
-    }
-  </style>
+    <div class="sy-h3d-card">
+      <div class="sy-h3d-bar">
+        <span class="sy-h3d-dot sy-h3d-dot1"></span>
+        <span class="sy-h3d-dot sy-h3d-dot2"></span>
+        <span class="sy-h3d-dot sy-h3d-dot3"></span>
+        <span class="sy-h3d-url">syfrows.com</span>
+        <span class="sy-h3d-live"><i></i>Live</span>
+      </div>
 
-  <g class="sy-card">
-    <g filter="url(#syCard)"><rect x="28" y="22" width="564" height="404" rx="20" fill="#fff"/></g>
+      <div class="sy-h3d-tabs" role="tablist" aria-label="Choose a metric">
+        <button type="button" class="sy-h3d-tab is-on" role="tab" aria-selected="true" data-sy-series="0">Traffic</button>
+        <button type="button" class="sy-h3d-tab" role="tab" aria-selected="false" data-sy-series="1">Leads</button>
+        <button type="button" class="sy-h3d-tab" role="tab" aria-selected="false" data-sy-series="2">Conv. rate</button>
+      </div>
 
-    <path d="M28 42a20 20 0 0 1 20-20h524a20 20 0 0 1 20 20v26H28z" fill="#F8FAFC"/>
-    <circle cx="54" cy="45" r="5" fill="#E2E8F0"/><circle cx="72" cy="45" r="5" fill="#E2E8F0"/><circle cx="90" cy="45" r="5" fill="#E2E8F0"/>
-    <rect x="112" y="34" width="168" height="22" rx="11" fill="#EDF1F6"/>
-    <text x="126" y="49" font-size="12" fill="#94A3B8">syfrows.com</text>
-    <circle class="sy-live" cx="534" cy="45" r="4" fill="#22C55E"/>
-    <text x="546" y="49" font-size="11" font-weight="600" fill="#64748B">Live</text>
+      <div class="sy-h3d-plot">
+        <svg viewBox="0 0 400 168" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="syH3dFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#F89E52" stop-opacity=".40"/>
+              <stop offset="100%" stop-color="#F89E52" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <g class="sy-h3d-rules">
+            <line x1="0" y1="40" x2="400" y2="40"/>
+            <line x1="0" y1="80" x2="400" y2="80"/>
+            <line x1="0" y1="120" x2="400" y2="120"/>
+          </g>
+          <path id="sy-h3d-area" class="sy-h3d-area" d=""/>
+          <path id="sy-h3d-line" class="sy-h3d-line" d=""/>
+          <circle id="sy-h3d-head" class="sy-h3d-head" r="5.5" cx="0" cy="0"/>
+        </svg>
+        <div class="sy-h3d-xaxis"><span>Start</span><span>Now</span></div>
+      </div>
+    </div>
 
-    <g class="sy-kpi">
-      <rect x="52" y="90" width="150" height="74" rx="12" fill="#F8FAFC"/>
-      <text x="68" y="113" font-size="12" font-weight="600" fill="#94A3B8">Sessions</text>
-      <g fill="#309000">
-        <rect class="sy-bar" style="animation-delay:.15s" x="68" y="134" width="9" height="12" rx="3" opacity=".45"/>
-        <rect class="sy-bar" style="animation-delay:.25s" x="82" y="130" width="9" height="16" rx="3" opacity=".6"/>
-        <rect class="sy-bar" style="animation-delay:.35s" x="96" y="136" width="9" height="10" rx="3" opacity=".5"/>
-        <rect class="sy-bar" style="animation-delay:.45s" x="110" y="126" width="9" height="20" rx="3" opacity=".8"/>
-        <rect class="sy-bar" style="animation-delay:.55s" x="124" y="120" width="9" height="26" rx="3"/>
-      </g>
-      <path d="M160 126l6-7 6 7z" fill="#309000"/>
-      <rect x="156" y="132" width="30" height="7" rx="3.5" fill="#D7E6D0"/>
-    </g>
-
-    <g class="sy-kpi">
-      <rect x="218" y="90" width="150" height="74" rx="12" fill="#F8FAFC"/>
-      <text x="234" y="113" font-size="12" font-weight="600" fill="#94A3B8">Leads</text>
-      <g fill="#F89E52">
-        <rect class="sy-bar" style="animation-delay:.3s" x="234" y="136" width="9" height="10" rx="3" opacity=".45"/>
-        <rect class="sy-bar" style="animation-delay:.4s" x="248" y="131" width="9" height="15" rx="3" opacity=".6"/>
-        <rect class="sy-bar" style="animation-delay:.5s" x="262" y="127" width="9" height="19" rx="3" opacity=".75"/>
-        <rect class="sy-bar" style="animation-delay:.6s" x="276" y="133" width="9" height="13" rx="3" opacity=".6"/>
-        <rect class="sy-bar" style="animation-delay:.7s" x="290" y="120" width="9" height="26" rx="3"/>
-      </g>
-      <path d="M326 126l6-7 6 7z" fill="#F89E52"/>
-      <rect x="322" y="132" width="30" height="7" rx="3.5" fill="#FBE2CB"/>
-    </g>
-
-    <g class="sy-kpi">
-      <rect x="384" y="90" width="150" height="74" rx="12" fill="#F8FAFC"/>
-      <text x="400" y="113" font-size="12" font-weight="600" fill="#94A3B8">Conv. rate</text>
-      <g fill="#2563EB">
-        <rect class="sy-bar" style="animation-delay:.45s" x="400" y="138" width="9" height="8" rx="3" opacity=".4"/>
-        <rect class="sy-bar" style="animation-delay:.55s" x="414" y="134" width="9" height="12" rx="3" opacity=".55"/>
-        <rect class="sy-bar" style="animation-delay:.65s" x="428" y="130" width="9" height="16" rx="3" opacity=".7"/>
-        <rect class="sy-bar" style="animation-delay:.75s" x="442" y="125" width="9" height="21" rx="3" opacity=".85"/>
-        <rect class="sy-bar" style="animation-delay:.85s" x="456" y="120" width="9" height="26" rx="3"/>
-      </g>
-      <path d="M492 126l6-7 6 7z" fill="#2563EB"/>
-      <rect x="488" y="132" width="30" height="7" rx="3.5" fill="#D6E2FB"/>
-    </g>
-
-    <rect x="52" y="186" width="516" height="180" rx="12" fill="#FCFDFE" stroke="#F1F5F9"/>
-    <g stroke="#F1F5F9" stroke-width="1">
-      <line x1="72" y1="232" x2="548" y2="232"/>
-      <line x1="72" y1="276" x2="548" y2="276"/>
-      <line x1="72" y1="320" x2="548" y2="320"/>
-    </g>
-
-    <g clip-path="url(#syPlot)">
-      <path class="sy-area" d="M72 338C106 330 112 318 140 320C172 322 186 332 208 328C240 322 252 292 276 286C308 278 322 266 344 262C374 257 390 270 412 268C444 265 458 236 480 228C510 220 528 212 548 206L548 366L72 366Z" fill="url(#syArea)"/>
-      <path class="sy-line" d="M72 338C106 330 112 318 140 320C172 322 186 332 208 328C240 322 252 292 276 286C308 278 322 266 344 262C374 257 390 270 412 268C444 265 458 236 480 228C510 220 528 212 548 206" fill="none" stroke="url(#syLine)" stroke-width="4" stroke-linecap="round"/>
-    </g>
-
-    <circle class="sy-ping" cx="548" cy="206" r="7" fill="#F89E52"/>
-    <circle class="sy-tip" cx="548" cy="206" r="7" fill="#fff" stroke="#EF7C1A" stroke-width="4"/>
-
-    <g fill="#CBD5E1" font-size="11">
-      <text x="66" y="388">Week 1</text><text x="180" y="388">Week 2</text><text x="294" y="388">Week 3</text>
-      <text x="408" y="388">Week 4</text><text x="512" y="388">Now</text>
-    </g>
-  </g>
-
-  <g class="sy-toast" filter="url(#syToastShadow)">
-    <rect x="392" y="398" width="196" height="70" rx="14" fill="#0F172A"/>
-    <circle cx="418" cy="421" r="9" fill="#22C55E"/>
-    <path d="M414 421l3 3 5-6" fill="none" stroke="#0F172A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    <text x="436" y="426" font-size="13" font-weight="600" fill="#fff">New enquiry</text>
-    <rect x="410" y="439" width="120" height="10" rx="5" fill="#CDF04B"/>
-    <rect x="410" y="455" width="86" height="7" rx="3.5" fill="#1E293B"/>
-  </g>
-</svg>
+    <div class="sy-h3d-chip sy-h3d-chip-a" aria-hidden="true">
+      <span class="sy-h3d-chip-ic">&#9650;</span>
+      <span><b>Qualified enquiry</b><i>from organic search</i></span>
+    </div>
+    <div class="sy-h3d-chip sy-h3d-chip-b" aria-hidden="true">
+      <span class="sy-h3d-chip-ic sy-h3d-chip-ic2">&#10003;</span>
+      <span><b>Strategy call booked</b><i>added to calendar</i></span>
+    </div>
+  </div>
+  <p class="sy-h3d-hint" id="sy-h3d-hint">Drag to tilt. Switch metric to redraw.</p>
+</div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
