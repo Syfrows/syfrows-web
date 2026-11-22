@@ -2566,10 +2566,14 @@ html{scroll-behavior:auto!important}
  .slider-shape-wrap{display:block!important}
  .slider-shape-wrap img:nth-child(5){display:block!important}
 }
-@media (max-width:1199px) and (prefers-reduced-motion:no-preference){
- .slider-shape-wrap img,.breadcrumb-shape-wrap img,.success-shape-wrap img,
- .agency-shape-wrap img,.testimonial-shape-wrap img{animation-duration:inherit!important}
-}
+/* The decorative objects stopped moving below 1200px because an earlier rule
+   here set animation-duration:inherit, which resolves to the parent's 0s and
+   freezes the animation while leaving its name in place. The theme's own
+   durations are correct, so nothing needs restating: the rule is simply gone.
+   The services blob never had an animation at all, so it gets one here. */
+@keyframes syFloat{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-18px,0)}}
+.services-shape{animation:syFloat 9s ease-in-out infinite;will-change:transform}
+@media (prefers-reduced-motion:reduce){.services-shape{animation:none!important}}
 @media (max-width:767.98px){.services-shape{opacity:.5}}
 
 /* Footer on phones and tablets: tighter, and the first column starts level
@@ -2726,3 +2730,68 @@ html{scroll-behavior:auto!important}
 .cases-active-sy .swiper-slide{height:auto;display:flex}
 .cases-active-sy .swiper-slide .sy-case{width:100%}
 .cases-active-sy .swiper-pagination{position:static;margin-top:30px}
+
+/* ---- Interactive 3D hero scene -------------------------------------------
+   Replaces the flat dashboard illustration. The deck tilts with the pointer
+   (or a finger drag), the floating chips sit on their own Z planes so they
+   parallax against the card, and the three tabs redraw the trend line. No
+   figures are shown anywhere in it: the shape is illustrative, not a claim.
+   Everything animated here is switched off under prefers-reduced-motion. */
+.sy-h3d{position:relative;width:100%;max-width:560px;margin-left:auto;perspective:1250px;perspective-origin:50% 45%;padding:46px 14px 44px;text-align:left}
+.sy-h3d-deck{position:relative;transform-style:preserve-3d;transform:rotateX(var(--sy-rx,7deg)) rotateY(var(--sy-ry,-13deg));transition:transform .45s cubic-bezier(.2,.7,.3,1);cursor:grab}
+.sy-h3d.is-live .sy-h3d-deck{transition:transform .12s linear}
+.sy-h3d.is-drag .sy-h3d-deck{cursor:grabbing}
+.sy-h3d-glow{position:absolute;inset:-14% -12% -18% -12%;transform:translateZ(-90px);background:radial-gradient(52% 52% at 62% 34%,rgba(248,158,82,.42),rgba(248,158,82,0) 70%),radial-gradient(46% 46% at 24% 76%,rgba(56,132,255,.30),rgba(56,132,255,0) 72%);filter:blur(6px);border-radius:50%}
+.sy-h3d-grid{position:absolute;inset:-6%;transform:translateZ(-46px) rotateX(1deg);background-image:linear-gradient(rgba(30,41,59,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(30,41,59,.07) 1px,transparent 1px);background-size:34px 34px;border-radius:22px;mask-image:radial-gradient(70% 70% at 50% 45%,#000,transparent);-webkit-mask-image:radial-gradient(70% 70% at 50% 45%,#000,transparent)}
+.sy-h3d-card{position:relative;transform:translateZ(0);background:#fff;border:1px solid #E7EDF5;border-radius:18px;box-shadow:0 30px 60px -24px rgba(15,23,42,.38),0 2px 6px rgba(15,23,42,.06);overflow:hidden}
+.sy-h3d-bar{display:flex;align-items:center;gap:7px;padding:12px 16px;border-bottom:1px solid #EEF2F7;background:#FBFCFE}
+.sy-h3d-dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
+.sy-h3d-dot1{background:#FF5F57}.sy-h3d-dot2{background:#FEBC2E}.sy-h3d-dot3{background:#28C840}
+.sy-h3d-url{margin-left:8px;font-size:12px;color:#64748B;letter-spacing:.2px}
+.sy-h3d-live{margin-left:auto;display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:#1B9E5A;text-transform:uppercase;letter-spacing:.6px}
+.sy-h3d-live i{width:7px;height:7px;border-radius:50%;background:#22C55E;animation:syPulseDot 1.9s ease-in-out infinite}
+@keyframes syPulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.7)}}
+.sy-h3d-tabs{display:flex;gap:7px;padding:14px 16px 0}
+.sy-h3d-tab{appearance:none;border:1px solid #E2E8F0;background:#fff;color:#475569;font-size:12px;font-weight:600;line-height:1;padding:8px 13px;border-radius:999px;cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .2s}
+.sy-h3d-tab:hover{transform:translateY(-1px);border-color:#F89E52;color:#1E293B}
+.sy-h3d-tab.is-on{background:#1E293B;border-color:#1E293B;color:#fff}
+.sy-h3d-tab:focus-visible{outline:2px solid #F89E52;outline-offset:2px}
+.sy-h3d-plot{position:relative;padding:12px 16px 14px}
+.sy-h3d-plot svg{display:block;width:100%;height:168px;overflow:visible}
+.sy-h3d-rules line{stroke:#EDF1F7;stroke-width:1}
+.sy-h3d-area{fill:url(#syH3dFill);opacity:0;transition:opacity .5s ease .25s}
+.sy-h3d-line{fill:none;stroke:#F89E52;stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round}
+.sy-h3d-head{fill:#fff;stroke:#F89E52;stroke-width:3.4;opacity:0;transition:opacity .35s ease .5s}
+.sy-h3d.is-drawn .sy-h3d-area,.sy-h3d.is-drawn .sy-h3d-head{opacity:1}
+.sy-h3d-xaxis{display:flex;justify-content:space-between;margin-top:8px;font-size:11px;color:#94A3B8;letter-spacing:.4px}
+.sy-h3d-chip{position:absolute;display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #E7EDF5;border-radius:13px;padding:10px 14px;box-shadow:0 18px 34px -16px rgba(15,23,42,.42);white-space:nowrap}
+.sy-h3d-chip b{display:block;font-size:12.5px;font-weight:600;color:#1E293B;line-height:1.25}
+.sy-h3d-chip i{display:block;font-style:normal;font-size:11px;color:#7C8798;line-height:1.3}
+.sy-h3d-chip-ic{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:8px;background:rgba(248,158,82,.16);color:#E07C22;font-size:10px;flex:0 0 auto}
+.sy-h3d-chip-ic2{background:rgba(34,197,94,.16);color:#17914B;font-size:12px}
+.sy-h3d-chip-a{top:-7%;left:-9%;transform:translateZ(95px);animation:syChipA 7s ease-in-out infinite}
+.sy-h3d-chip-b{bottom:-9%;right:-6%;transform:translateZ(130px);animation:syChipB 8.4s ease-in-out infinite .8s}
+@keyframes syChipA{0%,100%{transform:translateZ(95px) translateY(0)}50%{transform:translateZ(95px) translateY(-13px)}}
+@keyframes syChipB{0%,100%{transform:translateZ(130px) translateY(0)}50%{transform:translateZ(130px) translateY(11px)}}
+.sy-h3d-hint{margin:16px 0 0;font-size:11.5px;color:#94A3B8;letter-spacing:.3px;text-align:right;transition:opacity .4s}
+.sy-h3d.is-touched .sy-h3d-hint{opacity:0}
+@media (max-width:1199px){
+ /* Phones get this layout too (the document is pinned to a 980px viewport),
+    so the chips come inside the card's own width and the drag hint goes:
+    on a touch screen the gesture is found without being told. */
+ .sy-h3d{max-width:500px;margin:0 auto;padding:40px 10px 36px}
+ .sy-h3d-hint{display:none}
+ .sy-h3d-chip{padding:9px 12px;gap:9px}
+ .sy-h3d-chip b{font-size:12px}
+ .sy-h3d-chip i{font-size:10.5px}
+ .sy-h3d-chip-a{top:-5%;left:1%}
+ .sy-h3d-chip-b{bottom:-6%;right:1%}
+ .sy-h3d-plot svg{height:150px}
+}
+@media (prefers-reduced-motion:reduce){
+ .sy-h3d-deck{transform:rotateX(0) rotateY(0)!important;transition:none}
+ .sy-h3d-chip-a,.sy-h3d-chip-b,.sy-h3d-live i{animation:none!important}
+ .sy-h3d-area,.sy-h3d-head{opacity:1!important;transition:none}
+ .sy-h3d-line{stroke-dasharray:none!important;stroke-dashoffset:0!important}
+ .sy-h3d-hint{display:none}
+}
