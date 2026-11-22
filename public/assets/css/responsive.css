@@ -2828,3 +2828,10 @@ html{scroll-behavior:auto!important}
 @media (prefers-reduced-motion:reduce){
  .slider-shape-wrap img:nth-child(1),.slider-shape-wrap img:nth-child(5){animation:none!important}
 }
+
+/* ---- Working Together: side-scrollable card row ------------------------- */
+.sy-global-active{overflow:hidden;padding-bottom:4px}
+.sy-global-active .swiper-slide{height:auto;display:flex}
+.sy-global-active .swiper-slide .sy-global-card{width:100%}
+.sy-global-active .swiper-pagination{position:static;margin-top:28px}
+@media (max-width:575.98px){.sy-global-active{overflow:visible}}
