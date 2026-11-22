@@ -202,8 +202,13 @@
                         </div>
                         <div class="swiper-pagination"></div>
                     </div>
-                    <div class="row"><div class="col-12 text-center mt-30"><a href="case-studies.html" class="btn">See Our Case Studies <span></span></a></div>
-                    </div>
+                    <!-- The carousel shows a few services at a time. This opens the
+                         rest in place rather than sending people to another page,
+                         and the carousel is torn down while the grid is open so the
+                         two never fight over the same slides. -->
+                    <div class="row"><div class="col-12 text-center mt-30">
+                        <button type="button" id="sy-svc-toggle" class="btn" aria-expanded="false" aria-controls="sy-svc-all">Explore All Services <span></span></button>
+                    </div></div>
                 </div>
             </div>
             <div class="services-shape">
