@@ -2795,3 +2795,36 @@ html{scroll-behavior:auto!important}
  .sy-h3d-line{stroke-dasharray:none!important;stroke-dashoffset:0!important}
  .sy-h3d-hint{display:none}
 }
+
+/* ---- Booking page: a way back that does not depend on detection ---------- */
+.sy-book-return{max-width:640px;margin:26px auto 0;background:#F8FAFC;border:1px solid #E6EBF2;border-radius:16px;padding:22px 26px;text-align:center}
+.sy-book-return p{margin:0 0 16px;color:#54606F;font-size:15px;line-height:1.55}
+.sy-book-return .sy-book-actions{margin:0;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.sy-book-count{margin-top:16px!important;font-size:13px;color:#8A94A3}
+.sy-book-count a{color:#E07C22;text-decoration:underline}
+@media (max-width:767.98px){.sy-book-return{padding:18px;margin-top:20px}.sy-book-return p{font-size:14px}}
+
+/* ---- Decorative objects: make the motion actually readable --------------- */
+/* Two of the hero shapes, the ones with the widest travel, are hidden by the
+   theme below 1200px, which left only a couple of 20px dots drifting and read
+   as a still page. Show them again and give every shape a wider, quicker
+   path so the movement is noticed rather than merely measurable. */
+@media (max-width:1199px){
+ .slider-shape-wrap img:nth-child(2),
+ .slider-shape-wrap img:nth-child(3){display:block!important}
+}
+.slider-shape-wrap img:nth-child(2){animation-duration:16s!important}
+.slider-shape-wrap img:nth-child(3){animation-duration:6s!important}
+.slider-shape-wrap img:nth-child(4){animation-duration:7s!important}
+.slider-shape-wrap img:nth-child(6){animation-duration:4s!important}
+@keyframes syFloat{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-30px,0)}}
+.services-shape{animation-duration:6s!important}
+/* The two static hero shapes never moved at all. A slow drift each, on
+   opposite phases, so the corners of the hero are not dead. */
+@keyframes syDriftA{0%,100%{transform:translate3d(0,0,0) rotate(0)}50%{transform:translate3d(14px,-16px,0) rotate(6deg)}}
+@keyframes syDriftB{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(-16px,14px,0)}}
+.slider-shape-wrap img:nth-child(1){animation:syDriftA 11s ease-in-out infinite}
+.slider-shape-wrap img:nth-child(5){animation:syDriftB 9s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){
+ .slider-shape-wrap img:nth-child(1),.slider-shape-wrap img:nth-child(5){animation:none!important}
+}
