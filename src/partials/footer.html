@@ -80,6 +80,20 @@
                                         <li><img loading="lazy" src="assets/img/icon/loction_icon.svg" alt=""><span>Pune, Maharashtra 411046, India</span></li>
                                     </ul>
                                 </div>
+
+                                <!-- One field, one promise. syfrows-forms.js treats a
+                                     single-input form as a newsletter signup, so it
+                                     tracks sign_up rather than generate_lead and does
+                                     not demand a name. -->
+                                <div class="footer-newsletter">
+                                    <h4 class="fw-sub">Occasional notes on growth</h4>
+                                    <p>A short email when we publish something worth your time. No sequences, unsubscribe in one click.</p>
+                                    <form class="newsletter-form">
+                                        <label class="sr-only" for="nl-email">Email address</label>
+                                        <input type="email" id="nl-email" placeholder="you@company.com" required>
+                                        <button type="submit" class="btn">Subscribe <span></span></button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
