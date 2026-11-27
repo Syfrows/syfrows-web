@@ -394,7 +394,9 @@ html{scroll-behavior:auto!important}
  .sy-h3d-plot svg{height:150px}
 }
 @media (prefers-reduced-motion:reduce){
- .sy-h3d-deck{transform:rotateX(0) rotateY(0)!important;transition:none}
+ /* Keep the deck's var-driven transform so the pointer tilt still answers;
+    only the easing goes, so the response is instant rather than gliding. */
+ .sy-h3d-deck{transition:none}
  .sy-h3d-chip-a,.sy-h3d-chip-b,.sy-h3d-live i{animation:none!important}
  .sy-h3d-area,.sy-h3d-head{opacity:1!important;transition:none}
  .sy-h3d-line{stroke-dasharray:none!important;stroke-dashoffset:0!important}
