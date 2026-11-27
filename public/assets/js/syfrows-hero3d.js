@@ -2,7 +2,10 @@
  *
  * Three jobs: tilt the deck toward the pointer (or the finger, on touch),
  * redraw the trend line when a metric tab is chosen, and keep every bit of
- * that inert when the visitor has asked for reduced motion. The curves are
+ * ambient motion off when the visitor has asked for reduced motion, while
+ * keeping the tilt: nothing here moves unless a pointer is deliberately moved
+ * over it, which is the kind of motion that preference is not aimed at. The
+ * tilt is smaller and untweened in that mode. The curves are
  * illustrative shapes, not figures, so nothing here claims a result.
  */
 (function () {
@@ -77,7 +80,12 @@
 
   /* ---- tilt ------------------------------------------------------------- */
 
-  if (!reduce) {
+  {
+    /* Reduced motion gets a shallower tilt and no easing, set by the CSS that
+       drops the deck's transition; the gesture still answers, it just does not
+       glide. */
+    var TILT_X = reduce ? 7 : 16;
+    var TILT_Y = reduce ? 9 : 22;
     var raf = null, want = null;
 
     function apply() {
@@ -95,7 +103,7 @@
       var ny = (clientY - box.top)  / box.height - 0.5;
       /* Pointer right tilts the deck toward the pointer, pointer down lifts
          the far edge. Capped so the card never turns away from the reader. */
-      queue(REST_X - ny * 16, REST_Y + nx * 22);
+      queue(REST_X - ny * TILT_X, REST_Y + nx * TILT_Y);
     }
 
     stage.addEventListener('pointerenter', function () { stage.classList.add('is-live'); });
