@@ -2871,7 +2871,7 @@ html{scroll-behavior:auto!important}
    play for the first time. They set type, spacing and tap targets for that
    width rather than letting desktop values carry over. */
 @media (max-width: 767.98px) {
-  .container { padding-left: 20px; padding-right: 20px; }
+  .container { padding-left: 14px; padding-right: 14px; }
 
   /* Headings were sized for a wide canvas, so the longest ones ran to four
      lines here. These scale with the viewport and settle at a size that
@@ -2924,9 +2924,52 @@ html{scroll-behavior:auto!important}
 }
 
 @media (max-width: 575.98px) {
-  .container { padding-left: 18px; padding-right: 18px; }
+  .container { padding-left: 12px; padding-right: 12px; }
+  /* The grid rows carry a -15px margin to cancel the theme's old 15px
+     container padding. With a 12px container that 3px difference showed up
+     as a sliver of horizontal scroll, so the row and column gutters move
+     to match. */
+  .row { margin-left: -12px; margin-right: -12px; }
+  .row > [class*="col-"] { padding-left: 12px; padding-right: 12px; }
   /* Card padding was tuned for a three-up grid; one card per row needs less
      of the narrow screen given over to its own inset. */
-  .services-item-three, .pricing-box, .sy-case-card { padding-left: 18px;
-    padding-right: 18px; }
+  .services-item-three, .pricing-box, .sy-case-card { padding-left: 16px;
+    padding-right: 16px; }
+
+  /* ---- Footer length on a phone ----------------------------------------
+     Stacked, the four footer blocks ran to about 2.3 screens. The two link
+     lists are short labels that do not need the full width, so they sit
+     side by side, which removes a whole column's worth of scrolling. The
+     brand block and the contact block keep the full width, since a phone
+     number and an email field do not fit in half of it. */
+  .footer-top .row > .col-lg-3.col-sm-6:nth-child(2),
+  .footer-top .row > .col-lg-3.col-sm-6:nth-child(3) {
+    width: 50%; flex: 0 0 50%; max-width: 50%; }
+
+  /* The 11px that gave links a 44px touch target also stretched four lists
+     down the page. 7px keeps them comfortably tappable at about 30px while
+     giving back roughly a third of the list height. */
+  .footer-widget ul li a { padding-top: 6px; padding-bottom: 6px; }
+  /* The 8px gap under each item was set for a roomy desktop column; with the
+     padding above already separating the rows it only added height here. */
+  .footer-widget ul li { margin-bottom: 2px; }
+  .footer-widget { margin-bottom: 18px; }
+  .footer-widget .fw-title { margin-bottom: 10px; }
+  .footer-top { padding-top: 30px; }
+
+  /* The support number is set at display size for a wide footer, where it
+     anchors the column. Here it only costs height. */
+  .footer-contact { margin-top: 8px; }
+  /* The 25px between contact rows reads as deliberate air in a wide footer
+     and as a gap in a narrow one. */
+  .footer-about .list-wrap li, .footer-about ul li { margin-bottom: 12px; }
+  .footer-newsletter .fw-sub { margin-bottom: 6px; }
+  .footer-contact .title { font-size: 18px; line-height: 1.35; }
+
+  /* The legal links stacked one per line. They are short enough to run
+     across and wrap, which turns four rows into two. */
+  .footer-bottom { padding-top: 14px; padding-bottom: 14px; }
+  .legal-links { display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 0 16px; }
+  .legal-links a { padding-top: 3px; padding-bottom: 3px; font-size: 14px; }
 }
