@@ -38,4 +38,10 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     X-Frame-Options = "SAMEORIGIN"
+    # X-Frame-Options was being stripped somewhere between Netlify and
+    # Cloudflare and never reached the browser. frame-ancestors is the modern
+    # replacement and does survive. This is deliberately a one-directive CSP:
+    # it governs only who may frame our pages, so it cannot break scripts,
+    # styles or fonts the way a full policy could.
+    Content-Security-Policy = "frame-ancestors 'self'"
     Permissions-Policy = "geolocation=(), microphone=(), camera=(), interest-cohort=()"
