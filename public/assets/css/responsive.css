@@ -2938,16 +2938,16 @@ html{scroll-behavior:auto!important}
 }
 
 @media (max-width: 575.98px) {
-  .container { padding-left: 12px; padding-right: 12px; }
+  .container { padding-left: 8px; padding-right: 8px; }
   /* The grid rows carry a -15px margin to cancel the theme's old 15px
-     container padding. With a 12px container that 3px difference showed up
-     as a sliver of horizontal scroll, so the row and column gutters move
-     to match. */
-  .row { margin-left: -12px; margin-right: -12px; }
-  .row > [class*="col-"] { padding-left: 12px; padding-right: 12px; }
+     container padding. Any container narrower than that shows the
+     difference as a sliver of horizontal scroll, so the row and column
+     gutters move to match. */
+  .row { margin-left: -8px; margin-right: -8px; }
+  .row > [class*="col-"] { padding-left: 8px; padding-right: 8px; }
   /* Card padding was tuned for a three-up grid; one card per row needs less
      of the narrow screen given over to its own inset. */
-  .pricing-box, .sy-case-card { padding-left: 16px; padding-right: 16px; }
+  .pricing-box, .sy-case-card { padding-left: 12px; padding-right: 12px; }
 
   /* ---- Service cards, two to a row ---------------------------------------
      Two cards across leaves roughly 145px of text column, where the 19px
@@ -2968,7 +2968,15 @@ html{scroll-behavior:auto!important}
 
   /* The panel holding the carousel kept 34px of inset on each side, which on
      a 390px screen left the track only 298px and squeezed both cards. */
-  .services-item-wrap { padding-left: 14px; padding-right: 14px; }
+  .services-item-wrap { padding-left: 10px; padding-right: 10px; }
+
+  /* The rest of the inner panels were padded for a wide canvas too. On a
+     390px screen each of these was giving 36px to 50px of the width back to
+     its own inset, which is the empty space either side of the content. */
+  .sy-case-stat { padding-left: 12px; padding-right: 12px; }
+  .sy-global-card { padding-left: 14px; padding-right: 14px; }
+  .testimonial-item-three { padding-left: 14px; padding-right: 14px; }
+  .sy-cta-inner { padding-left: 12px; padding-right: 12px; }
 
   /* ---- Footer length on a phone ----------------------------------------
      Stacked, the four footer blocks ran to about 2.3 screens. The two link
