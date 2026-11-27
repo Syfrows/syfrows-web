@@ -509,6 +509,20 @@ html{scroll-behavior:auto!important}
   .footer-contact a, .services-item-three .title a { padding-top: 11px;
     padding-bottom: 11px; display: inline-block; }
 
+  /* The hero's two calls to action stacked full width, which pushed the fold
+     down and made the second one read as an afterthought. Side by side they
+     match the wider layout: equal halves, centred, and the labels wrap to a
+     second line rather than being cut. */
+  .slider-btn { display: flex; flex-wrap: nowrap; gap: 10px;
+    justify-content: center; align-items: stretch; }
+  /* The theme keeps these labels on one line, which at half width cut the
+     longer one off mid-word. Letting them wrap, and stretching both to the
+     taller of the two, keeps the pair even. */
+  .slider-btn .btn, .slider-btn .sy-btn-ghost { flex: 1 1 0; min-width: 0;
+    display: inline-flex; align-items: center; justify-content: center;
+    text-align: center; white-space: normal; padding-left: 12px;
+    padding-right: 12px; font-size: 13px; line-height: 1.3; }
+
   /* The scroll button sat on top of the running text. */
   .scroll-top { width: 38px; height: 38px; line-height: 38px; right: 12px; }
 
@@ -538,8 +552,24 @@ html{scroll-behavior:auto!important}
   .row > [class*="col-"] { padding-left: 12px; padding-right: 12px; }
   /* Card padding was tuned for a three-up grid; one card per row needs less
      of the narrow screen given over to its own inset. */
-  .services-item-three, .pricing-box, .sy-case-card { padding-left: 16px;
-    padding-right: 16px; }
+  .pricing-box, .sy-case-card { padding-left: 16px; padding-right: 16px; }
+
+  /* ---- Service cards, two to a row ---------------------------------------
+     Two cards across leaves roughly 145px of text column, where the 19px
+     heading and 16px body set above belong to a full-width card: the longest
+     service name was being cut off mid-word. These sizes are scoped to the
+     card, so running copy everywhere else keeps its 16px floor. */
+  .services-item-three { padding: 14px 12px; }
+  .services-item-three .title { font-size: 15px; line-height: 1.25;
+    overflow-wrap: break-word; hyphens: auto; }
+  .services-item-three p { font-size: 13.5px; line-height: 1.45; }
+  .services-item-three .link-btn { font-size: 13px; min-height: 36px;
+    gap: 6px; }
+  .services-item-three .services-icon-three img,
+  .services-item-three .services-icon-three { width: 42px; height: auto; }
+  /* The expanded Explore All Services grid uses the same cards, so it goes
+     two across here as well rather than reverting to one. */
+  .sy-svc-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
 
   /* ---- Footer length on a phone ----------------------------------------
      Stacked, the four footer blocks ran to about 2.3 screens. The two link
