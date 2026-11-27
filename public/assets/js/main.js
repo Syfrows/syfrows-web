@@ -614,7 +614,7 @@ if (document.querySelector('.services-active-sy')) {
       '992': { slidesPerView: Math.min(3, sCount) },
       '768': { slidesPerView: Math.min(3, sCount) },
       '576': { slidesPerView: Math.min(2, sCount) },
-      '0': { slidesPerView: 1 },
+      '0': { slidesPerView: Math.min(2, sCount), spaceBetween: 12 },
     },
   });
 }

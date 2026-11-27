@@ -78,7 +78,7 @@
           '992': { slidesPerView: Math.min(3, n) },
           '768': { slidesPerView: Math.min(3, n) },
           '576': { slidesPerView: Math.min(2, n) },
-          '0': { slidesPerView: 1 },
+          '0': { slidesPerView: Math.min(2, n), spaceBetween: 12 },
         },
       });
     }
