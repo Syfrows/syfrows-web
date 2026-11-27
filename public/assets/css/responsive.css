@@ -2861,3 +2861,72 @@ html{scroll-behavior:auto!important}
  .sy-svc-grid{opacity:1;transform:none;transition:none}
 }
 .sy-svc-grid:focus{outline:none}
+
+/* ---- Mobile readability layer -------------------------------------------
+   Until now the page declared a 980px viewport, so a phone laid the desktop
+   layout out at 980px and then shrank it to fit: on a 390px screen that is
+   0.4x, which put 16px body text on the glass at about 6px and left a wide
+   dead margin either side of the 720px container. The viewport meta now
+   reports the real device width, which brings these sub-768px rules into
+   play for the first time. They set type, spacing and tap targets for that
+   width rather than letting desktop values carry over. */
+@media (max-width: 767.98px) {
+  .container { padding-left: 20px; padding-right: 20px; }
+
+  /* Headings were sized for a wide canvas, so the longest ones ran to four
+     lines here. These scale with the viewport and settle at a size that
+     still reads as a heading. */
+  h1, .hero-content h1, .slider-content .title {
+    font-size: clamp(26px, 7.4vw, 31px); line-height: 1.2; }
+  h2, .section-title .title, .section-title.title-style-two .title {
+    font-size: clamp(23px, 6.8vw, 29px); line-height: 1.25; }
+  h3, .services-item-three .title, .pricing-box .title {
+    font-size: clamp(19px, 5.2vw, 23px); line-height: 1.32; }
+
+  /* 16px is the smallest size that stays comfortable at arm's length, and on
+     an input it also stops iOS zooming the page when the field is focused. */
+  p, li { font-size: 16px; line-height: 1.65; }
+  input, select, textarea,
+  .newsletter-form input, .footer-newsletter input { font-size: 16px; }
+
+  /* Raise the floor for everything the theme set in the 11px to 13px range:
+     captions, meta lines, the hero hint. Setting a floor rather than naming
+     each one keeps later copy safe too. */
+  small, .sy-h3d-hint, .footer-newsletter p,
+  .client-meta span, .case-meta, .pay-note span { font-size: 15px; }
+
+  /* A fingertip needs roughly 44px. These controls sat between 21px and 34px. */
+  .link-btn, .sy-h3d-tab { min-height: 44px; display: inline-flex;
+    align-items: center; }
+  .sy-h3d-tab { padding: 10px 15px; }
+  .navigation > li > a, .mobile-menu li a, .footer-widget ul li a,
+  .footer-bottom a, .copyright-text a, .contact-info a,
+  .footer-contact a, .services-item-three .title a { padding-top: 11px;
+    padding-bottom: 11px; display: inline-block; }
+
+  /* The scroll button sat on top of the running text. */
+  .scroll-top { width: 38px; height: 38px; line-height: 38px; right: 12px; }
+
+  /* The ring behind the pricing card is offset past its corner, which at this
+     width reached beyond the screen edge. */
+  .pricing-icon { width: 120px; height: 120px; top: -34px; right: -34px;
+    padding: 18px; }
+
+  /* The hero's glow and grid are drawn past the stage on purpose, so clip
+     them here rather than let them widen the page. */
+  #sy-h3d { overflow: hidden; }
+
+  /* The deck is tilted in 3D, so its painted corners reach wider than its
+     own box and the right edge of the card was being cut off. Narrowing it
+     leaves room for that projection, which keeps the tilt working rather
+     than flattening the scene to make it fit. */
+  #sy-h3d-deck { width: 82%; margin-left: auto; margin-right: auto; }
+}
+
+@media (max-width: 575.98px) {
+  .container { padding-left: 18px; padding-right: 18px; }
+  /* Card padding was tuned for a three-up grid; one card per row needs less
+     of the narrow screen given over to its own inset. */
+  .services-item-three, .pricing-box, .sy-case-card { padding-left: 18px;
+    padding-right: 18px; }
+}
