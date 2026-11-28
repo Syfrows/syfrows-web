@@ -3095,3 +3095,10 @@ html{scroll-behavior:auto!important}
      bottom padding, which was set for the stacked case. */
   .slider-area { padding-top: 118px; padding-bottom: 26px; }
 }
+
+/* The theme's stylesheet does not ship Bootstrap's d-lg-none helper, so the
+   class on the markup hid nothing and the quick links showed on desktop too,
+   where the full menu already sits in the bar. */
+@media (min-width: 992px) {
+  .sy-mnav { display: none !important; }
+}
