@@ -818,6 +818,7 @@ html{scroll-behavior:auto!important}
    is a third of a screen of nothing between each one. */
 @media (max-width: 767.98px) {
   .pt-120, .pt-110, .pt-100, .pt-90 { padding-top: 48px !important; }
+  .pb-160, .pb-150, .pb-140, .pb-130,
   .pb-120, .pb-110, .pb-100, .pb-90 { padding-bottom: 48px !important; }
   .pt-80, .pt-70 { padding-top: 40px !important; }
   .pb-80, .pb-70 { padding-bottom: 40px !important; }
