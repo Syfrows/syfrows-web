@@ -3102,3 +3102,85 @@ html{scroll-behavior:auto!important}
 @media (min-width: 992px) {
   .sy-mnav { display: none !important; }
 }
+
+/* ---- Hero, message first ------------------------------------------------
+   The side-by-side version put the headline in a 230px column, where it
+   ran to four ragged lines at 21px, and the illustration in 160px, where
+   the metric pills were 8px and the chart was a thumbnail. Neither half
+   did its job. On a phone the order that works is message, then proof:
+   headline at full width, a subhead that reads at 16px like the rest of
+   the page, the primary action across the full column, and the
+   illustration underneath at a size where it can still be read.
+   This block comes after the split one and overrides it. */
+@media (max-width: 767.98px) {
+  .slider-area .row { flex-wrap: wrap; }
+  .slider-area .row > .col-lg-6.order-0 {
+    order: 2 !important; flex: 0 0 100%; max-width: 100%; }
+  .slider-area .row > .col-lg-6:not(.order-0) {
+    order: 1 !important; flex: 0 0 100%; max-width: 100%; }
+
+  .slider-content .title { font-size: clamp(26px, 7.4vw, 31px);
+    line-height: 1.18; }
+  .slider-content p { font-size: 16px; line-height: 1.6;
+    margin-bottom: 22px; }
+
+  /* A primary action on a phone earns the full width; the secondary sits
+     under it rather than competing for the same row. */
+  .slider-btn { flex-wrap: wrap; gap: 10px; }
+  .slider-btn .btn, .slider-btn .sy-btn-ghost { flex: 1 1 100%;
+    font-size: 15px; padding-top: 14px; padding-bottom: 14px; }
+
+  /* Two thirds of the column keeps the card legible while leaving the
+     section about half the height it had when the picture led. */
+  .slider-img { margin-top: 24px; }
+  #sy-h3d-deck { width: 68%; }
+  #sy-h3d .sy-h3d-chip { display: block; }
+  /* The upper chip sits over the browser bar at this card size, so the URL
+     it covers is left out rather than half hidden behind it. */
+  #sy-h3d .sy-h3d-url { display: none; }
+  /* The lower chip hangs past the card, and the stage is clipped to stop
+     the glow widening the page, so the stage gets room for it. */
+  #sy-h3d { padding-bottom: 30px; }
+  #sy-h3d .sy-h3d-tabs { gap: 6px; }
+  #sy-h3d .sy-h3d-tab { font-size: 11px; padding: 7px 10px; }
+  #sy-h3d .sy-h3d-hint { font-size: 13px; }
+
+  /* A decorative shape was painted directly over the word Acquisition.
+     The large background swooshes are faint and stay; this one does not. */
+  .slider-shape-wrap img:nth-child(4) { display: none; }
+
+  .slider-area { padding-top: 112px; padding-bottom: 32px; }
+}
+
+/* ---- Calmer phone layout -------------------------------------------------
+   The home page carried a lot of decoration that reads as texture on a
+   wide canvas and as clutter on a phone: background swooshes, floating
+   dots and a blue disc drawn across the hero copy. They are all
+   decorative, so they come out below the large breakpoint and leave the
+   headline, the subhead and the buttons on clean white. */
+@media (max-width: 991.98px) {
+  .slider-shape-wrap, .banner-shape-wrap, .services-shape,
+  .about-shape-wrap, .cta-shape-wrap { display: none !important; }
+
+  /* Working Together duplicates what the services and case sections
+     already say, and on a phone it was another full screen to scroll. */
+  .sy-global { display: none !important; }
+}
+
+/* ---- Reading and chrome on a phone --------------------------------------
+   The theme forces text-transform: capitalize on 71 elements, so body
+   copy that is written in sentence case renders as Title Case. It is
+   harder to read at speed and makes the writing look unconsidered, so
+   paragraphs and list items keep the case they were written in. */
+@media (max-width: 991.98px) {
+  /* The theme sets capitalize on compound selectors that outrank a plain
+     element rule, so this is marked important. It is scoped below the
+     large breakpoint and cannot reach the desktop site. */
+  p, li, p *, li * { text-transform: none !important; }
+
+  /* The chat and scroll buttons were landing on top of card text. They sit
+     in the corner, stacked, and the scroll button only appears once there
+     is something to scroll back to. */
+  .sy-chat { width: 46px; height: 46px; right: 10px; bottom: 10px; }
+  .scroll-top { width: 34px; height: 34px; line-height: 34px; right: 15px; }
+}
