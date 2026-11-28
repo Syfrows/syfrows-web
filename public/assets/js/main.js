@@ -774,7 +774,21 @@ $('.odometer').appear(function (e) {
 	var odo = $(".odometer");
 	odo.each(function () {
 		var countNumber = $(this).attr("data-count");
-		$(this).html(countNumber);
+		/* Odometer wires itself up on DOMContentLoaded. The site's scripts are
+		   deferred until after load, so that moment has already passed by the
+		   time this file runs and the elements are never wrapped. Writing the
+		   number straight in then printed it with no roll. Creating the
+		   instance here and updating through it restores the count-up. */
+		if (!this.odometer && window.Odometer) {
+			try {
+				this.odometer = new window.Odometer({ el: this, value: 0, duration: 1800 });
+			} catch (err) { this.odometer = null; }
+		}
+		if (this.odometer && this.odometer.update) {
+			this.odometer.update(countNumber);
+		} else {
+			$(this).html(countNumber);
+		}
 	});
 });
 
