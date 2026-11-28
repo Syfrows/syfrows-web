@@ -620,3 +620,83 @@ html{scroll-behavior:auto!important}
     gap: 0 16px; }
   .legal-links a { padding-top: 3px; padding-bottom: 3px; font-size: 14px; }
 }
+
+/* ---- Phone header quick links -------------------------------------------
+   Below the large breakpoint the bar held only a logo and a hamburger, so
+   nothing in it said what the site offers. These four sit under the logo
+   and scroll sideways if a translation makes them wider than the screen. */
+@media (max-width: 991.98px) {
+  /* The logo's wordmark ends at 54px, so the strip starts below it rather
+     than being pulled up over the tagline. */
+  .sy-mnav { display: flex; gap: 18px; align-items: center;
+    padding: 4px 0 10px; margin-top: 2px; overflow-x: auto;
+    -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .sy-mnav::-webkit-scrollbar { display: none; }
+  .sy-mnav a { font-size: 15px; font-weight: 600; white-space: nowrap;
+    color: var(--tg-heading-font-color, #161620); padding: 6px 0;
+    min-height: 34px; display: inline-flex; align-items: center; }
+  .sy-mnav a:hover, .sy-mnav a:focus-visible { color: #e68839; }
+}
+
+/* ---- Hero side by side on a phone ---------------------------------------
+   Stacked, the dashboard illustration filled the first screen and pushed
+   the headline below the fold, so a visitor landed on a picture rather
+   than on what the agency does. Text takes the left and the illustration
+   the right, which puts the headline and both buttons in view at once.
+   The theme orders the image first for the stacked case, so the order is
+   set explicitly here rather than relying on source order. */
+@media (max-width: 767.98px) {
+  .slider-area .row { flex-wrap: nowrap; align-items: center; }
+  /* Bootstrap writes .order-0 as !important, so the illustration's order
+     has to be set the same way to move it to the right. */
+  .slider-area .row > .col-lg-6.order-0 {
+    order: 2 !important; flex: 0 0 41%; max-width: 41%; }
+  .slider-area .row > .col-lg-6:not(.order-0) {
+    order: 1 !important; flex: 0 0 59%; max-width: 59%; }
+
+  /* 59% of a 374px row is about 220px, so the headline and the buttons
+     come down to suit that column rather than the full width. */
+  .slider-content .title { font-size: clamp(17px, 4.9vw, 21px);
+    line-height: 1.22; }
+  .slider-content p { font-size: 14px; line-height: 1.5; }
+  /* Two buttons do not fit across 220px without breaking their labels. */
+  .slider-btn { flex-wrap: wrap; }
+  .slider-btn .btn, .slider-btn .sy-btn-ghost { flex: 1 1 100%;
+    font-size: 13px; padding-top: 10px; padding-bottom: 10px; }
+
+  /* The scene keeps its own proportions inside the narrower column. */
+  #sy-h3d { padding: 0; }
+  #sy-h3d-deck { width: 100%; }
+  .slider-img { text-align: center; }
+
+  /* At 142px the card itself fits, but the two floating chips are 175px
+     wide and absolutely positioned, so they reached back over the
+     headline. The browser-bar URL and the metric pills overflowed the
+     card for the same reason. The chart, which is the point of the
+     picture, stays. */
+  #sy-h3d .sy-h3d-chip { display: none; }
+  #sy-h3d .sy-h3d-url { display: none; }
+  /* Three pills have to fit inside about 120px of card, so they come down
+     to the smallest size that still reads as a control. */
+  /* Three pills do not fit inside about 120px of card at any size that
+     still reads, so the row scrolls instead of spilling past the card. */
+  #sy-h3d .sy-h3d-tabs { gap: 3px; overflow-x: auto; scrollbar-width: none;
+    -webkit-overflow-scrolling: touch; }
+  #sy-h3d .sy-h3d-tabs::-webkit-scrollbar { display: none; }
+  #sy-h3d .sy-h3d-tab { font-size: 8px; padding: 4px 5px; min-height: 0;
+    white-space: nowrap; flex: 0 0 auto; }
+  #sy-h3d .sy-h3d-hint { font-size: 11px; margin-top: 6px; }
+
+  /* A column of text reads better flush left than centred. */
+  .slider-content, .slider-content .title, .slider-content p {
+    text-align: left; }
+  .slider-btn { justify-content: flex-start; }
+
+  /* The quick links sit under the logo, where a decorative shape is
+     painted; lifting them keeps the labels clear of it. */
+  .sy-mnav { position: relative; z-index: 3; background: #fff; }
+
+  /* With the hero side by side the section ended well short of its own
+     bottom padding, which was set for the stacked case. */
+  .slider-area { padding-top: 118px; padding-bottom: 26px; }
+}
