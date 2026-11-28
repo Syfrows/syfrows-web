@@ -3140,9 +3140,9 @@ html{scroll-behavior:auto!important}
   /* The upper chip sits over the browser bar at this card size, so the URL
      it covers is left out rather than half hidden behind it. */
   #sy-h3d .sy-h3d-url { display: none; }
-  /* The lower chip hangs past the card, and the stage is clipped to stop
-     the glow widening the page, so the stage gets room for it. */
-  #sy-h3d { padding-bottom: 30px; }
+  /* Both chips hang past the card, and the stage is clipped to stop the glow
+     widening the page, so the stage gets room above and below for them. */
+  #sy-h3d { padding-top: 54px; padding-bottom: 34px; }
   #sy-h3d .sy-h3d-tabs { gap: 6px; }
   #sy-h3d .sy-h3d-tab { font-size: 11px; padding: 7px 10px; }
   #sy-h3d .sy-h3d-hint { font-size: 13px; }
@@ -3151,7 +3151,7 @@ html{scroll-behavior:auto!important}
      The large background swooshes are faint and stay; this one does not. */
   .slider-shape-wrap img:nth-child(4) { display: none; }
 
-  .slider-area { padding-top: 112px; padding-bottom: 32px; }
+  .slider-area { padding-top: 100px; padding-bottom: 32px; }
 }
 
 /* ---- Calmer phone layout -------------------------------------------------
